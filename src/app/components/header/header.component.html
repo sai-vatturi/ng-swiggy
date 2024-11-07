@@ -1,41 +1,62 @@
 <header class="w-full font-proxima font-medium shadow-xl">
 	<div class="w-[90%] mx-auto md:w-[85%] lg:w-[70%] px-3 flex justify-between items-center py-4">
 		<!-- Logo -->
-		<img src="./assets/icons/swiggy-icon.png" alt="Swiggy Icon" class="h-16 cursor-pointer hover:scale-110 transition duration-200" (click)="navigateTo('/')" />
+		<div class="flex items-center gap-4">
+			<img src="./assets/icons/swiggy-icon.png" alt="Swiggy Icon" class="h-16 cursor-pointer hover:scale-110 transition duration-200" (click)="navigateTo('/')" />
+
+			<!-- Location Dropdown -->
+			<div class="relative">
+				<button (click)="toggleLocationDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-black transition-colors hover:text-orange-500">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4 0 1.09.37 2.09 1 2.82V18h6v-3.18c.63-.73 1-1.73 1-2.82 0-2.21-1.79-4-4-4z" />
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+					</svg>
+					<span class="inline">{{ currentLocation }}</span>
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden lg:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+					</svg>
+				</button>
+
+				<!-- Location Dropdown Menu -->
+				<div *ngIf="showLocationDropdown" class="absolute left-0 mt-2 bg-white rounded-lg shadow-lg w-40 z-20">
+					<a *ngFor="let location of locations" (click)="selectLocation(location.name)" class="block px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white cursor-pointer">{{ location.name }}</a>
+				</div>
+			</div>
+		</div>
 
 		<!-- Navigation Links -->
 		<nav class="hidden md:flex gap-8 items-center text-lg text-[rgb(255, 82, 0)]">
 			<!-- Restaurants -->
-			<a (click)="navigateTo('/restaurants')" class="flex items-center gap-2 hover:text-orange-500 transition">
+			<a (click)="navigateTo('/restaurants')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M7 12v8a2 2 0 002 2h6a2 2 0 002-2v-8M7 12a5 5 0 0110 0v8" />
 				</svg>
-				Restaurants
+				<span class="hidden lg:inline">Restaurants</span>
 			</a>
 
 			<!-- Browse By Category -->
-			<a (click)="navigateTo('/categories')" class="flex items-center gap-2 hover:text-orange-500 transition">
+			<a (click)="navigateTo('/categories')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16m-7 4h7" />
 				</svg>
-				Browse By Category
+				<span class="hidden lg:inline">Browse By Category</span>
 			</a>
 
 			<!-- Cart -->
-			<a (click)="navigateTo('/cart')" class="flex items-center gap-2 hover:text-orange-500 transition">
+			<a (click)="navigateTo('/cart')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-1.5 9H4.5L3 3z" />
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 18a1 1 0 001 1h8a1 1 0 001-1m-9 0a1 1 0 011-1m5 0a1 1 0 011 1" />
 				</svg>
-				Cart
+				<span class="hidden lg:inline">Cart</span>
 			</a>
 
 			<!-- Favorites -->
-			<a (click)="navigateTo('/favorites')" class="flex items-center gap-2 hover:text-orange-500 transition">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+			<a (click)="navigateTo('/favorites')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart h-5 w-5" viewBox="0 0 16 16">
 					<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
 				</svg>
-				Favorites
+				<span class="hidden lg:inline">Favorites</span>
 			</a>
 
 			<!-- Profile Dropdown -->
@@ -46,7 +67,7 @@
 
 				<!-- Dropdown Menu -->
 				<div *ngIf="showDropdown" class="absolute right-0 mt-2 bg-white rounded-lg shadow-lg w-40 py-2 z-10">
-					<a (click)="navigateTo('/profile')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+					<a (click)="navigateTo('/profile')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Profile</a>
 					<button (click)="logout()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
 				</div>
 			</div>
@@ -62,11 +83,71 @@
 
 	<!-- Mobile Dropdown Menu -->
 	<div *ngIf="showMobileMenu" class="md:hidden bg-gray-700 text-white p-3">
-		<a (click)="navigateTo('/restaurants')" class="block px-4 py-2 hover:bg-orange-500">Restaurants</a>
-		<a (click)="navigateTo('/categories')" class="block px-4 py-2 hover:bg-orange-500">Browse By Category</a>
-		<a (click)="navigateTo('/cart')" class="block px-4 py-2 hover:bg-orange-500">Cart</a>
-		<a (click)="navigateTo('/favorites')" class="block px-4 py-2 hover:bg-orange-500">Favorites</a>
-		<a (click)="navigateTo('/profile')" class="block px-4 py-2 hover:bg-orange-500">Profile</a>
-		<a (click)="logout()" class="block px-4 py-2 hover:bg-orange-500">Logout</a>
+		<!-- Location Dropdown in Mobile Menu -->
+		<div class="relative mb-3">
+			<button (click)="toggleLocationDropdown()" class="flex items-center justify-between w-full px-4 py-2 bg-gray-600 rounded-lg text-white transition-colors hover:bg-gray-500">
+				<span>{{ currentLocation }}</span>
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+				</svg>
+			</button>
+
+			<!-- Location Dropdown Menu -->
+			<div *ngIf="showLocationDropdown" class="mt-2 bg-gray-600 rounded-lg shadow-lg w-full">
+				<a *ngFor="let location of locations" (click)="selectLocation(location.name); toggleLocationDropdown()" class="block px-4 py-2 text-white hover:bg-orange-500 cursor-pointer">{{ location.name }}</a>
+			</div>
+		</div>
+
+		<a (click)="navigateTo('/restaurants')" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M7 12v8a2 2 0 002 2h6a2 2 0 002-2v-8M7 12a5 5 0 0110 0v8" />
+				</svg>
+				<span>Restaurants</span>
+			</div>
+		</a>
+
+		<a (click)="navigateTo('/categories')" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16m-7 4h7" />
+				</svg>
+				<span>Browse By Category</span>
+			</div>
+		</a>
+
+		<a (click)="navigateTo('/cart')" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-1.5 9H4.5L3 3z" />
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 18a1 1 0 001 1h8a1 1 0 001-1m-9 0a1 1 0 011-1m5 0a1 1 0 011 1" />
+				</svg>
+				<span>Cart</span>
+			</div>
+		</a>
+
+		<a (click)="navigateTo('/favorites')" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart h-5 w-5" viewBox="0 0 16 16">
+					<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+				</svg>
+				<span>Favorites</span>
+			</div>
+		</a>
+
+		<a (click)="navigateTo('/profile')" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<img src="./assets/icons/profile-icon.svg" alt="Profile" class="h-5 w-5" />
+				<span>Profile</span>
+			</div>
+		</a>
+		<a (click)="logout()" class="block px-4 py-2 hover:bg-orange-500">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-12V5m0 0H7m6 0h6" />
+				</svg>
+				<span>Logout</span>
+			</div>
+		</a>
 	</div>
 </header>
