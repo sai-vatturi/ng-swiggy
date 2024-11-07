@@ -6,7 +6,8 @@ module.exports = {
 			fontFamily: {
 				gilroy: ['Gilroy', 'sans-serif'],
 				gilroybold: ['gilroy-bold', 'sans-serif'],
-				proximanova: ['ProximaNova', 'sans-serif']
+				proximanova: ['ProximaNova', 'sans-serif'],
+				proxima: ['proxima-nova', 'sans-serif']
 			},
 			colors: {
 				sworange: '#FE5005',

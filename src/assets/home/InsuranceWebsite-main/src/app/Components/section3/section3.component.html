@@ -1,0 +1,42 @@
+<div class="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-slate-200">
+  <!-- Heading Section -->
+  <div class="grid grid-cols-1 gap-8">
+    <!-- Left: Cards Section -->
+    <div class="h-fit">
+      <p class="text-teal-500 uppercase tracking-wide font-semibold">About Incep</p>
+      <h1 class="text-4xl font-bold text-gray-800">
+        Life Insurance That Creates Wealth For Everyone
+      </h1>
+    </div>
+    
+    <div class="space-y-6">
+      <!-- Use ng-container with *ngFor for repeating cards -->
+      <ng-container *ngFor="let x of sections3">
+        <div class="bg-white rounded-xl shadow-md p-6 flex items-center transform hover:-translate-y-2 transition duration-300 ease-in-out">
+          <div class="flex-shrink-0">
+            <img [src]="x.img" [alt]="x.alt">
+          </div>
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold text-gray-800">{{ x.title }}</h3>
+            <p class="mt-2 text-gray-600">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis placerat arcu nibh sed sit amet.
+            </p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Right: Images Section -->
+  <div class="grid grid-cols-2 gap-4 grid-rows-[200px_100px_200px_150px]">
+    <div class="rounded-lg overflow-hidden col-start-1 col-end-2 row-start-1 row-end-3">
+      <img src="../../../assets/images/section3/img1.jpg" alt="Image 1" class="w-full h-full object-cover transform hover:-translate-y-2 transition duration-300 ease-in-out">
+    </div>
+    <div class="rounded-lg overflow-hidden col-start-2 col-end-3 row-start-2 row-end-4">
+      <img src="../../../assets/images/section3/img3.jpg" alt="Image 2" class="w-full h-full object-cover transform hover:-translate-y-2 transition duration-300 ease-in-out">
+    </div>
+    <div class="rounded-lg overflow-hidden col-start-1 col-end-2 row-start-3 row-end-5">
+      <img src="../../../assets/images/section3/img2.jpg" alt="Image 3" class="w-full h-full object-cover transform hover:-translate-y-2 transition duration-300 ease-in-out">
+    </div>
+  </div>
+</div>

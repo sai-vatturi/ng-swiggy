@@ -1,0 +1,9 @@
+.card img{
+    height: 450px;
+    
+}
+@media (max-width:780px){
+    .acrd img{
+        width: 100%;
+    }
+}

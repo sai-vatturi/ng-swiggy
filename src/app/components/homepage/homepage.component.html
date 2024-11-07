@@ -65,7 +65,7 @@
 				<h1 class="text-2xl sm:text-3xl lg:text-5xl font-gilroy">Order Food & Groceries. Discover the best restaurants. Swiggy it!</h1>
 
 				<!-- Search Input -->
-				<div class="relative max-w-md mx-auto mt-8 sm:mt-10 lg:mt-12 mb-16 sm:mb-20 lg:mb-28">
+				<div class="relative max-w-md mx-auto mt-8 sm:mt-10 lg:mt-12 mb-16 sm:mb-20 lg:mb-28" (click)="navigateBasedOnLogin('/order-selection')">
 					<input type="text" placeholder="Enter your meal and more" class="w-full h-12 px-5 pr-12 text-xl rounded-lg text-black shadow-2xl" />
 					<img src="assets/home/search.svg" alt="Search Icon" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-6 w-6" />
 				</div>
@@ -74,9 +74,20 @@
 
 		<!-- Offers Section -->
 		<div class="flex justify-center px-4 sm:px-8 lg:px-12 mb-12">
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-12 max-w-7xl mx-auto">
-				<app-offer-card *ngFor="let offer of offers" [offer]="offer" (click)="navigateTo('/restaurants')"></app-offer-card>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 max-w-7xl mx-auto">
+				<!-- Restaurants Card -->
+				<app-offer-card [offer]="offers[0]" (click)="navigateBasedOnLogin('/order-selection')"></app-offer-card>
+
+				<!-- Food Items Card -->
+				<app-offer-card [offer]="offers[1]" (click)="navigateBasedOnLogin('/order-selection')"></app-offer-card>
+
+				<!-- Cart Card -->
+				<app-offer-card [offer]="offers[2]" (click)="navigateBasedOnLogin('/cart')"></app-offer-card>
+
+				<!-- Favourites Card -->
+				<app-offer-card [offer]="offers[3]" (click)="navigateBasedOnLogin('/favorites')"></app-offer-card>
 			</div>
 		</div>
 	</div>
 </section>
+<app-footer></app-footer>

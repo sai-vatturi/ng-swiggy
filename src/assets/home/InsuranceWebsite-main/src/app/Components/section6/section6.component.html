@@ -1,0 +1,30 @@
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-8">
+      <h2 class="text-sm text-teal-500 font-semibold uppercase">Expert Team</h2>
+      <h1 class="text-4xl font-bold text-gray-900 w-1/2 m-auto">Meet Our Team Expert & Experience Members</h1>
+    </div>
+  
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Team Member 1 -->
+      <ng-container *ngFor="let x of sections6">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img [src]="x.img" [alt]="x.alt" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">{{x.title}}</h3>
+            <p class="text-gray-600">{{x.para}}</p>
+            <div class="mt-4 flex justify-start space-x-3">
+              <a href="#" class="text-teal-500 social-icons bg-slate-500 "><i class="ri-facebook-fill"></i></a>
+              <a href="#" class="text-teal-500 social-icons"><i class="ri-twitter-fill"></i></a>
+              <a href="#" class="text-teal-500 social-icons"><i class="ri-instagram-fill"></i></a>
+              <a href="#" class="text-teal-500 social-icons"><i class="ri-linkedin-fill"></i></a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <p class="text-gray-600 mt-8 w-1/2 m-auto">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis placerat arcu nibh sed placerat elementum. 
+        Urna eu et purus et mi sit rhoncus <a href="#" class="text-teal-500">View All</a>
+    </p>
+  </div>
+  

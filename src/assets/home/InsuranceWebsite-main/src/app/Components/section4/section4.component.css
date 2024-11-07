@@ -1,0 +1,27 @@
+.container{
+    height:fit-content;
+    /* overflow: hidden; */
+    /* background-color: aqua; */
+}
+.card{
+    margin: auto;
+    
+}
+.card img{
+    height: 270px;
+    width: 350px;
+}
+.inner-card{
+    position: absolute;
+    left: 20px;
+    /* right: -10px; */
+    bottom: 15px;
+    width: 80%;
+    margin: auto;
+    height: fit-content;
+    padding: 1.5rem;
+    /* text-align: center; */
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgba(20,184,166,0.7);
+}

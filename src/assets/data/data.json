@@ -1,0 +1,502 @@
+{
+	"locations": [
+		{
+			"id": "hyd",
+			"name": "Hyderabad",
+			"restaurants": [
+				{
+					"id": "hyd_01",
+					"name": "Paradise Biryani",
+					"rating": 4.5,
+					"deliveryTime": "30-40",
+					"priceForTwo": 800,
+					"cuisines": ["Biryani", "North Indian", "Mughlai"],
+					"items": [
+						{ "id": "p_bir_1", "name": "Chicken Biryani", "price": 320, "category": "biryani", "imageId": "birayni.avif", "rating": 4.6, "totalRatings": 2840, "veg": false, "bestSeller": true },
+						{ "id": "p_bir_2", "name": "Mutton Biryani", "price": 380, "category": "biryani", "imageId": "birayni.avif", "rating": 4.7, "totalRatings": 2100, "veg": false, "bestSeller": true },
+						{ "id": "p_bir_3", "name": "Chicken 65", "price": 280, "category": "starter", "imageId": "kebab.avif", "rating": 4.3, "totalRatings": 1200, "veg": false },
+						{ "id": "p_bir_4", "name": "Veg Biryani", "price": 260, "category": "biryani", "imageId": "birayni.avif", "rating": 4.1, "totalRatings": 800, "veg": true },
+						{ "id": "p_bir_5", "name": "Gulab Jamun", "price": 90, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.4, "totalRatings": 950, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_02",
+					"name": "Mehfil Restaurant",
+					"rating": 4.3,
+					"deliveryTime": "35-45",
+					"priceForTwo": 600,
+					"cuisines": ["North Indian", "Chinese", "Biryani"],
+					"items": [
+						{ "id": "meh_1", "name": "Butter Chicken", "price": 340, "category": "northindian", "imageId": "northindian.avif", "rating": 4.5, "totalRatings": 1820, "veg": false, "bestSeller": true },
+						{ "id": "meh_2", "name": "Chicken Noodles", "price": 220, "category": "chinese", "imageId": "noodles.avif", "rating": 4.2, "totalRatings": 920, "veg": false },
+						{ "id": "meh_3", "name": "Veg Manchurian", "price": 180, "category": "chinese", "imageId": "chinese.avif", "rating": 4.3, "totalRatings": 750, "veg": true },
+						{ "id": "meh_4", "name": "Special Biryani", "price": 320, "category": "biryani", "imageId": "birayni.avif", "rating": 4.4, "totalRatings": 1600, "veg": false },
+						{ "id": "meh_5", "name": "Ice Cream", "price": 120, "category": "dessert", "imageId": "icecream.avif", "rating": 4.6, "totalRatings": 680, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_03",
+					"name": "Shah Ghouse",
+					"rating": 4.4,
+					"deliveryTime": "40-50",
+					"priceForTwo": 700,
+					"cuisines": ["Mughlai", "North Indian", "Chinese"],
+					"items": [
+						{ "id": "shah_1", "name": "Mutton Biryani", "price": 400, "category": "biryani", "imageId": "birayni.avif", "rating": 4.7, "totalRatings": 2400, "veg": false, "bestSeller": true },
+						{ "id": "shah_2", "name": "Shawarma", "price": 140, "category": "arabian", "imageId": "shawarma.avif", "rating": 4.3, "totalRatings": 1800, "veg": false },
+						{ "id": "shah_3", "name": "Chicken Roll", "price": 160, "category": "rolls", "imageId": "rolls.avif", "rating": 4.2, "totalRatings": 920, "veg": false },
+						{ "id": "shah_4", "name": "Malai Kebab", "price": 320, "category": "kebab", "imageId": "kebab.avif", "rating": 4.5, "totalRatings": 850, "veg": false },
+						{ "id": "shah_5", "name": "Falooda", "price": 150, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 620, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_04",
+					"name": "Dosa Plaza",
+					"rating": 4.2,
+					"deliveryTime": "25-35",
+					"priceForTwo": 400,
+					"cuisines": ["South Indian", "Chinese"],
+					"items": [
+						{ "id": "dosa_1", "name": "Masala Dosa", "price": 120, "category": "southindian", "imageId": "dosa.avif", "rating": 4.5, "totalRatings": 1500, "veg": true, "bestSeller": true },
+						{ "id": "dosa_2", "name": "Idli Sambar", "price": 80, "category": "southindian", "imageId": "idly.avif", "rating": 4.3, "totalRatings": 1200, "veg": true },
+						{ "id": "dosa_3", "name": "Schezwan Noodles", "price": 180, "category": "chinese", "imageId": "noodles.avif", "rating": 4.1, "totalRatings": 800, "veg": true },
+						{ "id": "dosa_4", "name": "Mysore Masala Dosa", "price": 140, "category": "southindian", "imageId": "dosa.avif", "rating": 4.4, "totalRatings": 950, "veg": true },
+						{ "id": "dosa_5", "name": "Rasmalai", "price": 100, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.6, "totalRatings": 600, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_05",
+					"name": "Pizza Hub",
+					"rating": 4.3,
+					"deliveryTime": "30-40",
+					"priceForTwo": 600,
+					"cuisines": ["Italian", "Fast Food"],
+					"items": [
+						{ "id": "pizza_1", "name": "Margherita Pizza", "price": 250, "category": "pizza", "imageId": "pizza.avif", "rating": 4.4, "totalRatings": 1800, "veg": true, "bestSeller": true },
+						{ "id": "pizza_2", "name": "Chicken Pizza", "price": 350, "category": "pizza", "imageId": "pizza.avif", "rating": 4.5, "totalRatings": 1600, "veg": false },
+						{ "id": "pizza_3", "name": "Chocolate Pastry", "price": 120, "category": "dessert", "imageId": "pastry.avif", "rating": 4.3, "totalRatings": 900, "veg": true },
+						{ "id": "pizza_4", "name": "Chicken Burger", "price": 180, "category": "burger", "imageId": "burger.avif", "rating": 4.2, "totalRatings": 750, "veg": false },
+						{ "id": "pizza_5", "name": "Chocolate Shake", "price": 150, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 500, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_06",
+					"name": "Cake & Bake",
+					"rating": 4.6,
+					"deliveryTime": "35-45",
+					"priceForTwo": 500,
+					"cuisines": ["Bakery", "Desserts"],
+					"items": [
+						{ "id": "cake_1", "name": "Black Forest Cake", "price": 450, "category": "cake", "imageId": "cake.avif", "rating": 4.7, "totalRatings": 1200, "veg": true, "bestSeller": true },
+						{ "id": "cake_2", "name": "Chocolate Pastry", "price": 90, "category": "pastry", "imageId": "pastry.avif", "rating": 4.5, "totalRatings": 800, "veg": true },
+						{ "id": "cake_3", "name": "Red Velvet Cake", "price": 500, "category": "cake", "imageId": "cake.avif", "rating": 4.6, "totalRatings": 950, "veg": true },
+						{ "id": "cake_4", "name": "Ice Cream Cake", "price": 600, "category": "cake", "imageId": "cake.avif", "rating": 4.4, "totalRatings": 600, "veg": true },
+						{ "id": "cake_5", "name": "Butterscotch Shake", "price": 150, "category": "beverages", "imageId": "shake.avif", "rating": 4.3, "totalRatings": 400, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_07",
+					"name": "Paratha House",
+					"rating": 4.1,
+					"deliveryTime": "30-40",
+					"priceForTwo": 300,
+					"cuisines": ["North Indian", "Street Food"],
+					"items": [
+						{ "id": "par_1", "name": "Aloo Paratha", "price": 80, "category": "paratha", "imageId": "paratha.avif", "rating": 4.3, "totalRatings": 1100, "veg": true, "bestSeller": true },
+						{ "id": "par_2", "name": "Paneer Paratha", "price": 100, "category": "paratha", "imageId": "paratha.avif", "rating": 4.4, "totalRatings": 900, "veg": true },
+						{ "id": "par_3", "name": "Chicken Roll", "price": 120, "category": "rolls", "imageId": "rolls.avif", "rating": 4.2, "totalRatings": 800, "veg": false },
+						{ "id": "par_4", "name": "Malabar Parotta", "price": 50, "category": "parotta", "imageId": "parotta.avif", "rating": 4.1, "totalRatings": 600, "veg": true },
+						{ "id": "par_5", "name": "Gulab Jamun", "price": 60, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.5, "totalRatings": 400, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_08",
+					"name": "Chinese Corner",
+					"rating": 4.0,
+					"deliveryTime": "35-45",
+					"priceForTwo": 500,
+					"cuisines": ["Chinese", "Thai"],
+					"items": [
+						{ "id": "chin_1", "name": "Veg Noodles", "price": 180, "category": "chinese", "imageId": "noodles.avif", "rating": 4.2, "totalRatings": 1200, "veg": true, "bestSeller": true },
+						{ "id": "chin_2", "name": "Chicken Manchurian", "price": 220, "category": "chinese", "imageId": "chinese.avif", "rating": 4.3, "totalRatings": 1000, "veg": false },
+						{ "id": "chin_3", "name": "Veg Spring Roll", "price": 150, "category": "rolls", "imageId": "rolls.avif", "rating": 4.1, "totalRatings": 800, "veg": true },
+						{ "id": "chin_4", "name": "Chilli Chicken", "price": 250, "category": "chinese", "imageId": "chinese.avif", "rating": 4.4, "totalRatings": 900, "veg": false },
+						{ "id": "chin_5", "name": "Ice Cream", "price": 100, "category": "dessert", "imageId": "icecream.avif", "rating": 4.0, "totalRatings": 500, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_09",
+					"name": "Arabian Nights",
+					"rating": 4.4,
+					"deliveryTime": "40-50",
+					"priceForTwo": 600,
+					"cuisines": ["Arabian", "Lebanese"],
+					"items": [
+						{ "id": "arab_1", "name": "Chicken Shawarma", "price": 160, "category": "shawarma", "imageId": "shawarma.avif", "rating": 4.5, "totalRatings": 2000, "veg": false, "bestSeller": true },
+						{ "id": "arab_2", "name": "Falafel Roll", "price": 140, "category": "rolls", "imageId": "rolls.avif", "rating": 4.3, "totalRatings": 1500, "veg": true },
+						{ "id": "arab_3", "name": "Chicken Kebab", "price": 280, "category": "kebab", "imageId": "kebab.avif", "rating": 4.4, "totalRatings": 1200, "veg": false },
+						{ "id": "arab_4", "name": "Hummus Plate", "price": 180, "category": "northindian", "imageId": "northindian.avif", "rating": 4.2, "totalRatings": 800, "veg": true },
+						{ "id": "arab_5", "name": "Date Milkshake", "price": 150, "category": "beverages", "imageId": "shake.avif", "rating": 4.6, "totalRatings": 600, "veg": true }
+					]
+				},
+				{
+					"id": "hyd_10",
+					"name": "Sweet Corner",
+					"rating": 4.5,
+					"deliveryTime": "25-35",
+					"priceForTwo": 300,
+					"cuisines": ["Desserts", "Ice Cream"],
+					"items": [
+						{ "id": "swt_1", "name": "Rasmalai", "price": 180, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.7, "totalRatings": 1500, "veg": true, "bestSeller": true },
+						{ "id": "swt_2", "name": "Gulab Jamun", "price": 120, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.6, "totalRatings": 1200, "veg": true },
+						{ "id": "swt_3", "name": "Chocolate Ice Cream", "price": 150, "category": "dessert", "imageId": "icecream.avif", "rating": 4.5, "totalRatings": 1000, "veg": true },
+						{ "id": "swt_4", "name": "Black Forest Pastry", "price": 90, "category": "pastry", "imageId": "pastry.avif", "rating": 4.4, "totalRatings": 800, "veg": true },
+						{ "id": "swt_5", "name": "Butterscotch Shake", "price": 140, "category": "beverages", "imageId": "shake.avif", "rating": 4.3, "totalRatings": 600, "veg": true }
+					]
+				}
+			]
+		},
+		{
+			"id": "blr",
+			"name": "Bangalore",
+			"restaurants": [
+				{
+					"id": "blr_01",
+					"name": "MTR",
+					"rating": 4.6,
+					"deliveryTime": "30-40",
+					"priceForTwo": 500,
+					"cuisines": ["South Indian", "North Indian"],
+					"items": [
+						{ "id": "mtr_1", "name": "Masala Dosa", "price": 150, "category": "southindian", "imageId": "dosa.avif", "rating": 4.8, "totalRatings": 3000, "veg": true, "bestSeller": true },
+						{ "id": "mtr_2", "name": "Idli Vada", "price": 120, "category": "southindian", "imageId": "idly.avif", "rating": 4.6, "totalRatings": 2500, "veg": true },
+						{ "id": "mtr_3", "name": "North Indian Thali", "price": 280, "category": "northindian", "imageId": "northindian.avif", "rating": 4.5, "totalRatings": 1800, "veg": true },
+						{ "id": "mtr_4", "name": "Rava Idli", "price": 130, "category": "southindian", "imageId": "idly.avif", "rating": 4.7, "totalRatings": 2000, "veg": true },
+						{ "id": "mtr_5", "name": "Filter Coffee", "price": 60, "category": "beverages", "imageId": "shake.avif", "rating": 4.9, "totalRatings": 3500, "veg": true }
+					]
+				},
+				{
+					"id": "blr_02",
+					"name": "Empire Restaurant",
+					"rating": 4.3,
+					"deliveryTime": "35-45",
+					"priceForTwo": 700,
+					"cuisines": ["Mughlai", "North Indian", "Biryani"],
+					"items": [
+						{ "id": "emp_1", "name": "Chicken Biryani", "price": 340, "category": "biryani", "imageId": "birayni.avif", "rating": 4.5, "totalRatings": 2800, "veg": false, "bestSeller": true },
+						{ "id": "emp_2", "name": "Butter Chicken", "price": 360, "category": "northindian", "imageId": "northindian.avif", "rating": 4.4, "totalRatings": 2200, "veg": false },
+						{ "id": "emp_3", "name": "Mutton Kebab", "price": 320, "category": "kebab", "imageId": "kebab.avif", "rating": 4.3, "totalRatings": 1900, "veg": false },
+						{ "id": "emp_4", "name": "Chicken Roll", "price": 180, "category": "rolls", "imageId": "rolls.avif", "rating": 4.2, "totalRatings": 1500, "veg": false },
+						{ "id": "emp_5", "name": "Fruit Salad", "price": 150, "category": "dessert", "imageId": "icecream.avif", "rating": 4.1, "totalRatings": 1000, "veg": true }
+					]
+				},
+				{
+					"id": "blr_03",
+					"name": "Pizza Town",
+					"rating": 4.4,
+					"deliveryTime": "30-40",
+					"priceForTwo": 600,
+					"cuisines": ["Italian", "Fast Food"],
+					"items": [
+						{ "id": "piz_1", "name": "Pepperoni Pizza", "price": 450, "category": "pizza", "imageId": "pizza.avif", "rating": 4.6, "totalRatings": 2200, "veg": false, "bestSeller": true },
+						{ "id": "piz_2", "name": "Veggie Supreme", "price": 400, "category": "pizza", "imageId": "pizza.avif", "rating": 4.4, "totalRatings": 1800, "veg": true },
+						{ "id": "piz_3", "name": "Garlic Bread", "price": 150, "category": "starter", "imageId": "burger.avif", "rating": 4.3, "totalRatings": 1200, "veg": true },
+						{ "id": "piz_4", "name": "Chicken Wings", "price": 280, "category": "starter", "imageId": "kebab.avif", "rating": 4.5, "totalRatings": 1600, "veg": false },
+						{ "id": "piz_5", "name": "Chocolate Mousse", "price": 180, "category": "dessert", "imageId": "cake.avif", "rating": 4.7, "totalRatings": 900, "veg": true }
+					]
+				},
+				{
+					"id": "blr_04",
+					"name": "Beijing Bites",
+					"rating": 4.2,
+					"deliveryTime": "40-50",
+					"priceForTwo": 800,
+					"cuisines": ["Chinese", "Thai", "Asian"],
+					"items": [
+						{ "id": "bei_1", "name": "Kung Pao Chicken", "price": 320, "category": "chinese", "imageId": "chinese.avif", "rating": 4.4, "totalRatings": 1800, "veg": false, "bestSeller": true },
+						{ "id": "bei_2", "name": "Hakka Noodles", "price": 260, "category": "chinese", "imageId": "noodles.avif", "rating": 4.3, "totalRatings": 1500, "veg": true },
+						{ "id": "bei_3", "name": "Dim Sum", "price": 280, "category": "chinese", "imageId": "chinese.avif", "rating": 4.5, "totalRatings": 1200, "veg": false },
+						{ "id": "bei_4", "name": "Spring Rolls", "price": 220, "category": "rolls", "imageId": "rolls.avif", "rating": 4.2, "totalRatings": 1000, "veg": true },
+						{ "id": "bei_5", "name": "Date Pancake", "price": 180, "category": "dessert", "imageId": "cake.avif", "rating": 4.1, "totalRatings": 800, "veg": true }
+					]
+				},
+				{
+					"id": "blr_05",
+					"name": "Udupi Palace",
+					"rating": 4.5,
+					"deliveryTime": "25-35",
+					"priceForTwo": 400,
+					"cuisines": ["South Indian", "North Indian"],
+					"items": [
+						{ "id": "udu_1", "name": "Paper Masala Dosa", "price": 140, "category": "southindian", "imageId": "dosa.avif", "rating": 4.7, "totalRatings": 2500, "veg": true, "bestSeller": true },
+						{ "id": "udu_2", "name": "Mysore Masala Dosa", "price": 160, "category": "southindian", "imageId": "dosa.avif", "rating": 4.6, "totalRatings": 2200, "veg": true },
+						{ "id": "udu_3", "name": "Puri Bhaji", "price": 120, "category": "northindian", "imageId": "northindian.avif", "rating": 4.4, "totalRatings": 1800, "veg": true },
+						{ "id": "udu_4", "name": "Chole Bhature", "price": 140, "category": "northindian", "imageId": "northindian.avif", "rating": 4.5, "totalRatings": 1600, "veg": true },
+						{ "id": "udu_5", "name": "Kesari Bath", "price": 80, "category": "dessert", "imageId": "pastry.avif", "rating": 4.3, "totalRatings": 1200, "veg": true }
+					]
+				},
+				{
+					"id": "blr_06",
+					"name": "Arabian Knights",
+					"rating": 4.3,
+					"deliveryTime": "35-45",
+					"priceForTwo": 500,
+					"cuisines": ["Arabian", "Lebanese", "Turkish"],
+					"items": [
+						{ "id": "ak_1", "name": "Shawarma Roll", "price": 180, "category": "shawarma", "imageId": "shawarma.avif", "rating": 4.5, "totalRatings": 2200, "veg": false, "bestSeller": true },
+						{ "id": "ak_2", "name": "Hummus Plate", "price": 220, "category": "northindian", "imageId": "northindian.avif", "rating": 4.3, "totalRatings": 1800, "veg": true },
+						{ "id": "ak_3", "name": "Mixed Grill", "price": 480, "category": "kebab", "imageId": "kebab.avif", "rating": 4.6, "totalRatings": 1500, "veg": false },
+						{ "id": "ak_4", "name": "Falafel Wrap", "price": 160, "category": "rolls", "imageId": "rolls.avif", "rating": 4.2, "totalRatings": 1200, "veg": true },
+						{ "id": "ak_5", "name": "Kunafa", "price": 250, "category": "dessert", "imageId": "pastry.avif", "rating": 4.7, "totalRatings": 900, "veg": true }
+					]
+				},
+				{
+					"id": "blr_07",
+					"name": "Sweet Symphony",
+					"rating": 4.6,
+					"deliveryTime": "25-35",
+					"priceForTwo": 400,
+					"cuisines": ["Desserts", "Bakery"],
+					"items": [
+						{ "id": "ss_1", "name": "Death by Chocolate", "price": 150, "category": "cake", "imageId": "cake.avif", "rating": 4.8, "totalRatings": 1800, "veg": true, "bestSeller": true },
+						{ "id": "ss_2", "name": "Red Velvet Cupcake", "price": 90, "category": "pastry", "imageId": "pastry.avif", "rating": 4.5, "totalRatings": 1500, "veg": true },
+						{ "id": "ss_3", "name": "Blueberry Cheesecake", "price": 180, "category": "cake", "imageId": "cake.avif", "rating": 4.7, "totalRatings": 1200, "veg": true },
+						{ "id": "ss_4", "name": "Hot Chocolate", "price": 120, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 900, "veg": true },
+						{ "id": "ss_5", "name": "Ice Cream Sundae", "price": 220, "category": "dessert", "imageId": "icecream.avif", "rating": 4.6, "totalRatings": 1000, "veg": true }
+					]
+				},
+				{
+					"id": "blr_08",
+					"name": "Roll Express",
+					"rating": 4.1,
+					"deliveryTime": "30-40",
+					"priceForTwo": 300,
+					"cuisines": ["Roll", "Fast Food", "Street Food"],
+					"items": [
+						{ "id": "re_1", "name": "Paneer Roll", "price": 120, "category": "rolls", "imageId": "rolls.avif", "rating": 4.3, "totalRatings": 1500, "veg": true, "bestSeller": true },
+						{ "id": "re_2", "name": "Chicken Kathi Roll", "price": 140, "category": "rolls", "imageId": "rolls.avif", "rating": 4.4, "totalRatings": 1800, "veg": false },
+						{ "id": "re_3", "name": "Mutton Roll", "price": 160, "category": "rolls", "imageId": "rolls.avif", "rating": 4.5, "totalRatings": 1200, "veg": false },
+						{ "id": "re_4", "name": "Veg Burger", "price": 100, "category": "burger", "imageId": "burger.avif", "rating": 4.0, "totalRatings": 900, "veg": true },
+						{ "id": "re_5", "name": "Cold Coffee", "price": 80, "category": "beverages", "imageId": "shake.avif", "rating": 4.2, "totalRatings": 600, "veg": true }
+					]
+				},
+				{
+					"id": "blr_09",
+					"name": "Paratha Junction",
+					"rating": 4.2,
+					"deliveryTime": "30-40",
+					"priceForTwo": 250,
+					"cuisines": ["North Indian", "Street Food"],
+					"items": [
+						{ "id": "pj_1", "name": "Aloo Paratha", "price": 70, "category": "paratha", "imageId": "paratha.avif", "rating": 4.4, "totalRatings": 2000, "veg": true, "bestSeller": true },
+						{ "id": "pj_2", "name": "Paneer Paratha", "price": 90, "category": "paratha", "imageId": "paratha.avif", "rating": 4.5, "totalRatings": 1800, "veg": true },
+						{ "id": "pj_3", "name": "Mixed Paratha", "price": 85, "category": "paratha", "imageId": "paratha.avif", "rating": 4.3, "totalRatings": 1500, "veg": true },
+						{ "id": "pj_4", "name": "Lassi", "price": 60, "category": "beverages", "imageId": "shake.avif", "rating": 4.6, "totalRatings": 1200, "veg": true },
+						{ "id": "pj_5", "name": "Gulab Jamun", "price": 50, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.7, "totalRatings": 1000, "veg": true }
+					]
+				},
+				{
+					"id": "blr_10",
+					"name": "Burger King",
+					"rating": 4.0,
+					"deliveryTime": "25-35",
+					"priceForTwo": 350,
+					"cuisines": ["American", "Fast Food"],
+					"items": [
+						{ "id": "bk_1", "name": "Whopper", "price": 179, "category": "burger", "imageId": "burger.avif", "rating": 4.3, "totalRatings": 2500, "veg": false, "bestSeller": true },
+						{ "id": "bk_2", "name": "Chicken Wings", "price": 150, "category": "starter", "imageId": "kebab.avif", "rating": 4.1, "totalRatings": 1800, "veg": false },
+						{ "id": "bk_3", "name": "Veg Burger", "price": 129, "category": "burger", "imageId": "burger.avif", "rating": 4.0, "totalRatings": 1500, "veg": true },
+						{ "id": "bk_4", "name": "French Fries", "price": 99, "category": "starter", "imageId": "burger.avif", "rating": 4.2, "totalRatings": 2000, "veg": true },
+						{ "id": "bk_5", "name": "Chocolate Shake", "price": 129, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 1200, "veg": true }
+					]
+				}
+			]
+		},
+		{
+			"id": "mum",
+			"name": "Mumbai",
+			"restaurants": [
+				{
+					"id": "mum_01",
+					"name": "Trishna",
+					"rating": 4.7,
+					"deliveryTime": "35-45",
+					"priceForTwo": 1200,
+					"cuisines": ["Seafood", "Coastal"],
+					"items": [
+						{ "id": "tri_1", "name": "Butter Garlic Crab", "price": 850, "category": "northindian", "imageId": "northindian.avif", "rating": 4.8, "totalRatings": 3000, "veg": false, "bestSeller": true },
+						{ "id": "tri_2", "name": "Prawns Koliwada", "price": 450, "category": "starter", "imageId": "kebab.avif", "rating": 4.6, "totalRatings": 2500, "veg": false },
+						{ "id": "tri_3", "name": "Fish Curry", "price": 550, "category": "northindian", "imageId": "northindian.avif", "rating": 4.7, "totalRatings": 2200, "veg": false },
+						{ "id": "tri_4", "name": "Veg Biryani", "price": 350, "category": "biryani", "imageId": "birayni.avif", "rating": 4.5, "totalRatings": 1800, "veg": true },
+						{ "id": "tri_5", "name": "Rasmalai", "price": 180, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.9, "totalRatings": 1500, "veg": true }
+					]
+				},
+				{
+					"id": "mum_02",
+					"name": "Theobroma",
+					"rating": 4.6,
+					"deliveryTime": "25-35",
+					"priceForTwo": 600,
+					"cuisines": ["Bakery", "Desserts"],
+					"items": [
+						{ "id": "theo_1", "name": "Chocolate Brownie", "price": 180, "category": "pastry", "imageId": "pastry.avif", "rating": 4.8, "totalRatings": 3500, "veg": true, "bestSeller": true },
+						{ "id": "theo_2", "name": "Red Velvet Cake", "price": 450, "category": "cake", "imageId": "cake.avif", "rating": 4.7, "totalRatings": 3000, "veg": true },
+						{ "id": "theo_3", "name": "Dutch Truffle", "price": 380, "category": "cake", "imageId": "cake.avif", "rating": 4.6, "totalRatings": 2500, "veg": true },
+						{ "id": "theo_4", "name": "Chocolate Mousse", "price": 220, "category": "dessert", "imageId": "pastry.avif", "rating": 4.5, "totalRatings": 2000, "veg": true },
+						{ "id": "theo_5", "name": "Cold Coffee", "price": 180, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 1500, "veg": true }
+					]
+				},
+				{
+					"id": "mum_03",
+					"name": "Swati Snacks",
+					"rating": 4.5,
+					"deliveryTime": "30-40",
+					"priceForTwo": 500,
+					"cuisines": ["Gujarati", "Street Food"],
+					"items": [
+						{ "id": "swati_1", "name": "Pav Bhaji", "price": 180, "category": "northindian", "imageId": "northindian.avif", "rating": 4.7, "totalRatings": 2800, "veg": true, "bestSeller": true },
+						{ "id": "swati_2", "name": "Panki", "price": 220, "category": "southindian", "imageId": "dosa.avif", "rating": 4.6, "totalRatings": 2200, "veg": true },
+						{ "id": "swati_3", "name": "Dosa", "price": 200, "category": "southindian", "imageId": "dosa.avif", "rating": 4.5, "totalRatings": 2000, "veg": true },
+						{ "id": "swati_4", "name": "Falooda", "price": 150, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 1500, "veg": true },
+						{ "id": "swati_5", "name": "Ice Cream", "price": 120, "category": "dessert", "imageId": "icecream.avif", "rating": 4.3, "totalRatings": 1200, "veg": true }
+					]
+				},
+				{
+					"id": "mum_04",
+					"name": "Mohammed Ali Road Special",
+					"rating": 4.4,
+					"deliveryTime": "40-50",
+					"priceForTwo": 800,
+					"cuisines": ["Mughlai", "North Indian"],
+					"items": [
+						{ "id": "ma_1", "name": "Seekh Kebab", "price": 280, "category": "kebab", "imageId": "kebab.avif", "rating": 4.6, "totalRatings": 2500, "veg": false, "bestSeller": true },
+						{ "id": "ma_2", "name": "Chicken Biryani", "price": 320, "category": "biryani", "imageId": "birayni.avif", "rating": 4.5, "totalRatings": 2200, "veg": false },
+						{ "id": "ma_3", "name": "Mutton Korma", "price": 380, "category": "northindian", "imageId": "northindian.avif", "rating": 4.4, "totalRatings": 1800, "veg": false },
+						{ "id": "ma_4", "name": "Phirni", "price": 120, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.7, "totalRatings": 1500, "veg": true },
+						{ "id": "ma_5", "name": "Butter Naan", "price": 50, "category": "northindian", "imageId": "paratha.avif", "rating": 4.3, "totalRatings": 1200, "veg": true }
+					]
+				},
+				{
+					"id": "mum_05",
+					"name": "Pizza Paradise",
+					"rating": 4.6,
+					"deliveryTime": "30-35",
+					"priceForTwo": 600,
+					"cuisines": ["Italian", "Fast Food"],
+					"items": [
+						{ "id": "pp_1", "name": "Margherita Pizza", "price": 299, "category": "pizza", "imageId": "pizza.avif", "rating": 4.7, "totalRatings": 3200, "veg": true, "bestSeller": true },
+						{ "id": "pp_2", "name": "Pepperoni Pizza", "price": 399, "category": "pizza", "imageId": "pizza.avif", "rating": 4.8, "totalRatings": 2800, "veg": false },
+						{ "id": "pp_3", "name": "Garlic Breadsticks", "price": 149, "category": "starter", "imageId": "pizza.avif", "rating": 4.5, "totalRatings": 1900, "veg": true },
+						{ "id": "pp_4", "name": "Chocolate Mousse", "price": 179, "category": "dessert", "imageId": "pastry.avif", "rating": 4.6, "totalRatings": 1500, "veg": true },
+						{ "id": "pp_5", "name": "Cold Coffee", "price": 159, "category": "beverages", "imageId": "shake.avif", "rating": 4.4, "totalRatings": 1200, "veg": true }
+					]
+				},
+				{
+					"id": "mum_06",
+					"name": "South Indian Express",
+					"rating": 4.3,
+					"deliveryTime": "25-35",
+					"priceForTwo": 400,
+					"cuisines": ["South Indian", "Tamil"],
+					"items": [
+						{ "id": "sie_1", "name": "Masala Dosa", "price": 120, "category": "southindian", "imageId": "dosa.avif", "rating": 4.6, "totalRatings": 2900, "veg": true, "bestSeller": true },
+						{ "id": "sie_2", "name": "Idli Sambar", "price": 80, "category": "southindian", "imageId": "idly.avif", "rating": 4.5, "totalRatings": 2400, "veg": true },
+						{ "id": "sie_3", "name": "Parotta", "price": 40, "category": "parotta", "imageId": "parotta.avif", "rating": 4.4, "totalRatings": 1800, "veg": true },
+						{ "id": "sie_4", "name": "Filter Coffee", "price": 60, "category": "beverages", "imageId": "shake.avif", "rating": 4.7, "totalRatings": 2200, "veg": true },
+						{ "id": "sie_5", "name": "Gulab Jamun", "price": 90, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.3, "totalRatings": 1100, "veg": true }
+					]
+				},
+				{
+					"id": "mum_07",
+					"name": "Dragon Wok",
+					"rating": 4.4,
+					"deliveryTime": "35-45",
+					"priceForTwo": 700,
+					"cuisines": ["Chinese", "Asian"],
+					"items": [
+						{ "id": "dw_1", "name": "Schezwan Noodles", "price": 250, "category": "chinese", "imageId": "noodles.avif", "rating": 4.5, "totalRatings": 2600, "veg": false, "bestSeller": true },
+						{ "id": "dw_2", "name": "Kung Pao Chicken", "price": 320, "category": "chinese", "imageId": "chinese.avif", "rating": 4.6, "totalRatings": 2200, "veg": false },
+						{ "id": "dw_3", "name": "Veg Spring Rolls", "price": 180, "category": "chinese", "imageId": "chinese.avif", "rating": 4.3, "totalRatings": 1700, "veg": true },
+						{ "id": "dw_4", "name": "Fried Rice", "price": 220, "category": "chinese", "imageId": "chinese.avif", "rating": 4.4, "totalRatings": 2000, "veg": true },
+						{ "id": "dw_5", "name": "Ice Cream", "price": 150, "category": "dessert", "imageId": "icecream.avif", "rating": 4.2, "totalRatings": 900, "veg": true }
+					]
+				},
+				{
+					"id": "mum_08",
+					"name": "Burger Junction",
+					"rating": 4.5,
+					"deliveryTime": "25-35",
+					"priceForTwo": 500,
+					"cuisines": ["American", "Fast Food"],
+					"items": [
+						{ "id": "bj_1", "name": "Classic Chicken Burger", "price": 220, "category": "burger", "imageId": "burger.avif", "rating": 4.6, "totalRatings": 3100, "veg": false, "bestSeller": true },
+						{ "id": "bj_2", "name": "Veggie Supreme Burger", "price": 180, "category": "burger", "imageId": "burger.avif", "rating": 4.4, "totalRatings": 2400, "veg": true },
+						{ "id": "bj_3", "name": "French Fries", "price": 120, "category": "starter", "imageId": "burger.avif", "rating": 4.5, "totalRatings": 2800, "veg": true },
+						{ "id": "bj_4", "name": "Chocolate Shake", "price": 160, "category": "beverages", "imageId": "shake.avif", "rating": 4.7, "totalRatings": 1900, "veg": true },
+						{ "id": "bj_5", "name": "Ice Cream Sundae", "price": 190, "category": "dessert", "imageId": "icecream.avif", "rating": 4.6, "totalRatings": 1600, "veg": true }
+					]
+				},
+				{
+					"id": "mum_09",
+					"name": "North Indian Delight",
+					"rating": 4.2,
+					"deliveryTime": "40-50",
+					"priceForTwo": 800,
+					"cuisines": ["North Indian", "Mughlai"],
+					"items": [
+						{ "id": "nid_1", "name": "Butter Chicken", "price": 380, "category": "northindian", "imageId": "northindian.avif", "rating": 4.5, "totalRatings": 2700, "veg": false, "bestSeller": true },
+						{ "id": "nid_2", "name": "Paneer Butter Masala", "price": 320, "category": "northindian", "imageId": "northindian.avif", "rating": 4.4, "totalRatings": 2200, "veg": true },
+						{ "id": "nid_3", "name": "Butter Naan", "price": 60, "category": "northindian", "imageId": "paratha.avif", "rating": 4.3, "totalRatings": 1900, "veg": true },
+						{ "id": "nid_4", "name": "Mixed Veg Paratha", "price": 90, "category": "northindian", "imageId": "paratha.avif", "rating": 4.2, "totalRatings": 1500, "veg": true },
+						{ "id": "nid_5", "name": "Rasmalai", "price": 100, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.6, "totalRatings": 1800, "veg": true }
+					]
+				},
+				{
+					"id": "mum_10",
+					"name": "Roll Express",
+					"rating": 4.3,
+					"deliveryTime": "30-40",
+					"priceForTwo": 400,
+					"cuisines": ["Fast Food", "Street Food"],
+					"items": [
+						{ "id": "re_1", "name": "Chicken Kathi Roll", "price": 160, "category": "rolls", "imageId": "rolls.avif", "rating": 4.5, "totalRatings": 2500, "veg": false, "bestSeller": true },
+						{ "id": "re_2", "name": "Paneer Roll", "price": 140, "category": "rolls", "imageId": "rolls.avif", "rating": 4.3, "totalRatings": 2000, "veg": true },
+						{ "id": "re_3", "name": "Shawarma Roll", "price": 180, "category": "shawarma", "imageId": "shawarma.avif", "rating": 4.4, "totalRatings": 1800, "veg": false },
+						{ "id": "re_4", "name": "Chicken Kebab", "price": 220, "category": "kebab", "imageId": "kebab.avif", "rating": 4.5, "totalRatings": 1600, "veg": false },
+						{ "id": "re_5", "name": "Cold Coffee", "price": 120, "category": "beverages", "imageId": "shake.avif", "rating": 4.2, "totalRatings": 1200, "veg": true }
+					]
+				},
+				{
+					"id": "mum_11",
+					"name": "Sweet Tooth",
+					"rating": 4.7,
+					"deliveryTime": "25-35",
+					"priceForTwo": 500,
+					"cuisines": ["Desserts", "Bakery"],
+					"items": [
+						{ "id": "st_1", "name": "Black Forest Cake", "price": 450, "category": "cake", "imageId": "cake.avif", "rating": 4.8, "totalRatings": 3200, "veg": true, "bestSeller": true },
+						{ "id": "st_2", "name": "Chocolate Pastry", "price": 120, "category": "pastry", "imageId": "pastry.avif", "rating": 4.7, "totalRatings": 2800, "veg": true },
+						{ "id": "st_3", "name": "Gulab Jamun", "price": 80, "category": "dessert", "imageId": "gulabjamun.avif", "rating": 4.6, "totalRatings": 2400, "veg": true },
+						{ "id": "st_4", "name": "Vanilla Ice Cream", "price": 100, "category": "dessert", "imageId": "icecream.avif", "rating": 4.5, "totalRatings": 2000, "veg": true },
+						{ "id": "st_5", "name": "Rasmalai", "price": 150, "category": "dessert", "imageId": "rasmalai.avif", "rating": 4.7, "totalRatings": 2200, "veg": true }
+					]
+				},
+				{
+					"id": "mum_12",
+					"name": "Arabian Nights",
+					"rating": 4.4,
+					"deliveryTime": "35-45",
+					"priceForTwo": 600,
+					"cuisines": ["Arabian", "Lebanese"],
+					"items": [
+						{ "id": "an_1", "name": "Chicken Shawarma", "price": 180, "category": "shawarma", "imageId": "shawarma.avif", "rating": 4.6, "totalRatings": 2900, "veg": false, "bestSeller": true },
+						{ "id": "an_2", "name": "Falafel Wrap", "price": 160, "category": "shawarma", "imageId": "shawarma.avif", "rating": 4.4, "totalRatings": 2300, "veg": true },
+						{ "id": "an_3", "name": "Hummus with Pita", "price": 220, "category": "starter", "imageId": "northindian.avif", "rating": 4.5, "totalRatings": 2100, "veg": true },
+						{ "id": "an_4", "name": "Mixed Grill", "price": 450, "category": "kebab", "imageId": "kebab.avif", "rating": 4.7, "totalRatings": 1800, "veg": false },
+						{ "id": "an_5", "name": "Baklava", "price": 200, "category": "dessert", "imageId": "pastry.avif", "rating": 4.8, "totalRatings": 1500, "veg": true }
+					]
+				}
+			]
+		}
+	]
+}

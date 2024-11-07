@@ -1,0 +1,16 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.container{
+    height: fit-content;
+    background-color: white;
+    padding-top: 10rem;
+    position: relative;
+    top: -100px;
+    left: 20px;
+    width: 100%;
+    z-index: 10;
+    clip-path: ellipse(100% 90% at 50% 100%);
+}

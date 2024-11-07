@@ -1,0 +1,67 @@
+<footer class="bg-gray-50 py-8">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4  gap-8 p-4 sticky bottom-0">
+      
+      <!-- Logo and Contact Info -->
+      <div>
+        <h2 class="text-2xl font-bold text-teal-600 mb-4">Logo</h2>
+        <p class="text-gray-700">Location: Isr Street girlt awam juim</p>
+        <p class="text-gray-700">Contact: +9 5555559909</p>
+        <p class="text-gray-700">Time: (9am – 5pm EST, Monday – Friday)</p>
+        <p class="text-gray-700">Email: <a href="mailto:youme@Rule.com" class="text-teal-600">{{email}}</a></p>
+      </div>
+      <ng-container *ngFor="let section of footerKeys">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">{{ section | titlecase }}</h3>
+          <ul class="space-y-2 text-gray-700">
+          <li *ngFor="let x of footerdescription[section]">
+            <a href="#" class="hover:text-green-600">{{ x }}</a>
+          </li>
+        </ul>
+        </div>
+      </ng-container>
+    </div>
+</footer>
+
+
+<!-- Company Section -->
+      <!-- <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Company</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><a href="#" class="hover:text-green-600">Case Studies</a></li>
+          <li><a href="#" class="hover:text-green-600">Case Details</a></li>
+          <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-green-600">Services</a></li>
+          
+        </ul>
+      </div> -->
+  
+      <!-- Explore Section -->
+      <!-- <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Explore</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><a href="#" class="hover:text-green-600">About Us</a></li>
+          <li><a href="#" class="hover:text-green-600">Blog And News</a></li>
+          <li><a href="#" class="hover:text-green-600">Blog Details</a></li>
+          <li><a href="#" class="hover:text-green-600">Pricing</a></li>
+        </ul>
+      </div> -->
+  
+      <!-- Insurance Section -->
+      <!-- <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Insurance</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><a href="#" class="hover:text-green-600">Health Insurance</a></li>
+          <li><a href="#" class="hover:text-green-600">Car Insurance</a></li>
+          <li><a href="#" class="hover:text-green-600">Business Insurance</a></li>
+          <li><a href="#" class="hover:text-green-600">Life Insurance</a></li>
+        </ul>
+      </div> -->
+      
+      
+      
+
+  
+
+
+  
+  
