@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div *ngIf="restaurant" class="py-8 px-4 sm:px-6 lg:px-8 my-16">
+	<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+		<div class="relative">
+			<img [src]="'https://picsum.photos/seed/' + restaurant.id + '/800/400'" alt="{{ restaurant.name }}" class="w-full h-64 object-cover" onerror="this.src='/assets/images/placeholder.png'" />
+			<div class="absolute bottom-4 left-4 bg-white rounded-full px-3 py-1 text-sm font-medium text-gray-900 shadow-md">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+					<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM8.41 16.34L5.66 13.6l1.41-1.41 1.34 1.34L16.59 7 18 8.41 8.41 16.34z" clip-rule="evenodd" />
+				</svg>
+				<span>{{ restaurant.rating }}</span>
+			</div>
+		</div>
+		<div class="px-6 py-4">
+			<h1 class="text-2xl font-gilroybold text-gray-900">{{ restaurant.name }}</h1>
+			<p class="text-gray-600 mt-2 font-gilroy">{{ restaurant.cuisines.join(', ') }}</p>
+			<div class="flex items-center text-gray-500 mt-2 font-gilroy">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+					<path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+				</svg>
+				<span>{{ restaurant.deliveryTime }} minutes</span>
+				<span class="mx-2">•</span>
+				<span>₹{{ restaurant.priceForTwo }} for two</span>
+			</div>
+			<div class="mt-4">
+				<h2 class="text-lg font-gilroybold">Menu</h2>
+				<div class="mt-2 space-y-4">
+					<div *ngFor="let item of restaurant.items" class="flex items-center">
+						<div class="flex-1">
+							<h3 class="text-gray-900 font-gilroybold">
+								<img [src]="'https://picsum.photos/seed/' + item.id + '/50/50'" alt="Random Image" class="inline-block mr-2 rounded-full" />
+								{{ item.name }}
+							</h3>
+							<p class="text-gray-600 font-gilroy">₹{{ item.price }}</p>
+							<div class="flex items-center text-gray-500 mt-1 font-gilroy">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+									<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM8.41 16.34L5.66 13.6l1.41-1.41 1.34 1.34L16.59 7 18 8.41 8.41 16.34z" clip-rule="evenodd" />
+								</svg>
+								<span>{{ item.rating }} ({{ item.totalRatings }} reviews)</span>
+							</div>
+						</div>
+						<div class="text-right">
+							<button class="bg-orange-500 hover:bg-orange-600 text-white font-gilroybold py-2 px-4 rounded-full">Add</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="!restaurant" class="py-8 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+	<div class="text-gray-500 font-gilroy">Loading...</div>
+</div>
+<app-footer></app-footer>

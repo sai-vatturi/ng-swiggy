@@ -1,0 +1,25 @@
+<div class="py-4">
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+		<div *ngFor="let restaurant of restaurants" class="bg-white rounded-lg overflow-hidden cursor-pointer" (click)="goToRestaurantDetail(restaurant.id)">
+			<div class="relative p-4 hover:scale-105 transition duration-200">
+				<!-- Image with fallback placeholder -->
+				<div class="relative">
+					<img [src]="'https://picsum.photos/seed/' + restaurant.id + '/400/300'" alt="{{ restaurant.name }}" class="w-full h-52 object-cover shadow-md m-2 rounded-2xl" onerror="this.src='/assets/images/placeholder.png'" />
+				</div>
+				<div class="absolute bottom-8 font-gilroybold left-8 text-lg text-white px-2 py-1 drop-shadow-2xl">₹75 OFF ABOVE ₹199</div>
+			</div>
+			<div class="px-4">
+				<h3 class="text-xl text-gray-800 font-gilroybold">{{ restaurant.name }}</h3>
+				<div class="flex items-center text-green-500">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+						<path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM8.41 16.34L5.66 13.6l1.41-1.41 1.34 1.34L16.59 7 18 8.41 8.41 16.34z" clip-rule="evenodd" />
+					</svg>
+					<span class="font-gilroy font-normal text-black">{{ restaurant.rating }}</span>
+					<span class="text-gray-500 mx-2">•</span>
+					<span class="font-gilroy font-normal">{{ restaurant.deliveryTime }} mins</span>
+				</div>
+				<p class="text-gray-600 mt-1 font-gilroy">{{ restaurant.cuisines.join(', ') }}</p>
+			</div>
+		</div>
+	</div>
+</div>

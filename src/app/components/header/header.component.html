@@ -28,9 +28,7 @@
 		<nav class="hidden md:flex gap-8 items-center text-lg text-[rgb(255, 82, 0)]">
 			<!-- Restaurants -->
 			<a (click)="navigateTo('/restaurants')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M7 12v8a2 2 0 002 2h6a2 2 0 002-2v-8M7 12a5 5 0 0110 0v8" />
-				</svg>
+				<img src="./assets/header/restaurants.svg" alt="" class="h-7 w-7 transition" />
 				<span class="hidden lg:inline">Restaurants</span>
 			</a>
 
@@ -44,18 +42,13 @@
 
 			<!-- Cart -->
 			<a (click)="navigateTo('/cart')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-1.5 9H4.5L3 3z" />
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 18a1 1 0 001 1h8a1 1 0 001-1m-9 0a1 1 0 011-1m5 0a1 1 0 011 1" />
-				</svg>
+				<img src="./assets/header/cart.svg" alt="" class="h-6 w-6 transition" />
 				<span class="hidden lg:inline">Cart</span>
 			</a>
 
 			<!-- Favorites -->
 			<a (click)="navigateTo('/favorites')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart h-5 w-5" viewBox="0 0 16 16">
-					<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-				</svg>
+				<img src="./assets/header/love.svg" alt="" class="h-6 w-6 transition" />
 				<span class="hidden lg:inline">Favorites</span>
 			</a>
 

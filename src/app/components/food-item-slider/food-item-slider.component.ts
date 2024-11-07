@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface FoodItem {
 	name: string; // used for alt text accessibility
@@ -40,6 +41,11 @@ export class FoodItemSliderComponent implements OnInit {
 	sliderPosition = 0; // Tracks the current position of the slider
 	itemWidth = 160; // Width of each item in px including margins
 	itemsPerView = 4; // Default number of items to show based on screen size
+	constructor(private router: Router) {}
+
+	showFoodDetails(category: string): void {
+		this.router.navigate(['/food-details'], { queryParams: { category } });
+	}
 
 	ngOnInit() {
 		this.updateItemsPerView();

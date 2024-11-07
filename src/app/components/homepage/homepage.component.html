@@ -32,7 +32,7 @@
 						</li>
 
 						<!-- Profile Icon or Login Button -->
-						<li class="w-full sm:w-auto">
+						<li class="w-full sm:w-auto flex justify-center sm:justify-start">
 							<ng-container *ngIf="isLoggedIn; else loginButton">
 								<div class="relative">
 									<button (click)="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-black transition-colors">
@@ -90,4 +90,24 @@
 		</div>
 	</div>
 </section>
+
+<div class="pt-16 pb-10">
+	<app-food-item-slider></app-food-item-slider>
+</div>
+
+<div class="bg-[#151A1E] my-10 py-10">
+	<img src="./assets/home/order.png" alt="" class="md:w-[80%] lg:w-[70%] mx-auto" />
+</div>
+
+<div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-8 mt-11">
+	<p class="w-[90%] sm:w-[80%] mx-auto font-gilroybold text-xl sm:text-2xl py-8 sm:py-12">Cities with food delivery</p>
+	<nav class="w-full sm:w-[90%] mx-auto">
+		<ul class="flex flex-wrap justify-center gap-6 sm:gap-12 md:gap-16 lg:gap-24 w-full mx-auto pb-10">
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Hyderabad')">Order food online in Hyderabad</li>
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Bangalore')">Order food online in Bangalore</li>
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Mumbai')">Order food online in Mumbai</li>
+		</ul>
+	</nav>
+</div>
+
 <app-footer></app-footer>

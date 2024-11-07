@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { LocationService } from '../../services/location.service'; // Import LocationService
+import { LocationService } from '../../services/location.service';
 
 interface Location {
 	id: string;
@@ -14,14 +14,14 @@ interface Location {
 	standalone: true,
 	imports: [NgIf, NgFor],
 	templateUrl: './header.component.html',
-	styleUrls: ['./header.component.css'] // Corrected to 'styleUrls'
+	styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 	isLoggedIn = false;
 	currentUser: any;
 	showDropdown = false;
 	showMobileMenu = false;
-	showLocationDropdown = false; // State for location dropdown
+	showLocationDropdown = false;
 	currentLocation: string = '';
 	locations: Location[] = [
 		{ id: 'hyd', name: 'Hyderabad' },
@@ -32,11 +32,18 @@ export class HeaderComponent {
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private locationService: LocationService // Inject LocationService
+		private locationService: LocationService
 	) {
 		this.isLoggedIn = this.authService.isLoggedIn();
 		this.currentUser = this.authService.getCurrentUser();
-		this.currentLocation = this.locationService.getLocation(); // Initialize currentLocation
+
+		// Subscribe to location updates from LocationService
+		this.locationService.location$.subscribe(location => {
+			this.currentLocation = location;
+		});
+
+		// Initialize with the current location
+		this.currentLocation = this.locationService.getLocation();
 	}
 
 	navigateTo(path: string) {
@@ -54,7 +61,6 @@ export class HeaderComponent {
 
 	toggleMobileMenu() {
 		this.showMobileMenu = !this.showMobileMenu;
-		// Close other dropdowns when mobile menu is toggled
 		if (!this.showMobileMenu) {
 			this.showLocationDropdown = false;
 			this.showDropdown = false;
@@ -63,7 +69,6 @@ export class HeaderComponent {
 
 	toggleLocationDropdown() {
 		this.showLocationDropdown = !this.showLocationDropdown;
-		// Close other dropdowns when location dropdown is toggled
 		if (this.showLocationDropdown) {
 			this.showDropdown = false;
 			this.showMobileMenu = false;
@@ -72,7 +77,6 @@ export class HeaderComponent {
 
 	selectLocation(location: string) {
 		this.locationService.setLocation(location);
-		this.currentLocation = location;
 		this.showLocationDropdown = false;
 	}
 
@@ -82,7 +86,6 @@ export class HeaderComponent {
 		this.router.navigate(['/']);
 	}
 
-	// Close the dropdowns if clicked outside
 	@HostListener('document:click', ['$event'])
 	closeDropdown(event: Event) {
 		const target = event.target as HTMLElement;
