@@ -1,10 +1,20 @@
 <div class="py-4">
+	<div class="flex justify-end mb-4">
+		<select #sortSelect (change)="sortRestaurants(sortSelect.value)" class="px-2 py-1 border rounded">
+			<option value="">Default Sorting</option>
+			<option value="rating-desc">Sort by Rating (High to Low)</option>
+			<option value="rating-asc">Sort by Rating (Low to High)</option>
+			<option value="deliveryTime-asc">Sort by Delivery Time (Shortest to Longest)</option>
+			<option value="deliveryTime-desc">Sort by Delivery Time (Longest to Shortest)</option>
+		</select>
+	</div>
+
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
 		<div *ngFor="let restaurant of restaurants" class="bg-white rounded-lg overflow-hidden cursor-pointer" (click)="goToRestaurantDetail(restaurant.id)">
 			<div class="relative p-4 hover:scale-105 transition duration-200">
 				<!-- Image with fallback placeholder -->
 				<div class="relative">
-					<img [src]="'https://picsum.photos/seed/' + restaurant.id + '/400/300'" alt="{{ restaurant.name }}" class="w-full h-52 object-cover shadow-md m-2 rounded-2xl" onerror="this.src='/assets/images/placeholder.png'" />
+					<img [src]="'https://picsum.photos/seed/' + restaurant.id + '/400/300'" alt="{{ restaurant.name }}" class="w-full h-52 object-cover shadow-md m-2 rounded-2xl" (error)="onImageError($event)" />
 				</div>
 				<div class="absolute bottom-8 font-gilroybold left-8 text-lg text-white px-2 py-1 drop-shadow-2xl">₹75 OFF ABOVE ₹199</div>
 			</div>

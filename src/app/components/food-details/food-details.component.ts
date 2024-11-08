@@ -1,32 +1,45 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../../services/cart.service'; // Assume CartService handles cart actions
-import { FavoritesService } from '../../services/favorites.service'; // Assume FavoritesService handles favorites actions
+import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorites.service';
 import { LocationService } from '../../services/location.service';
 import { RestaurantService } from '../../services/restaurant.service';
 import { FoodItemSliderComponent } from '../food-item-slider/food-item-slider.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+interface FoodItem {
+	id: string;
+	name: string;
+	price: number;
+	rating: number;
+	veg: boolean;
+	quantity: number;
+	// Add other properties as necessary
+}
 
 @Component({
 	selector: 'app-food-details',
 	templateUrl: './food-details.component.html',
 	styleUrls: ['./food-details.component.css'],
 	standalone: true,
-	imports: [CommonModule, NgFor, HeaderComponent, FooterComponent, FoodItemSliderComponent]
+	imports: [CommonModule, NgFor, HeaderComponent, FooterComponent, FoodItemSliderComponent, FormsModule]
 })
 export class FoodDetailsComponent implements OnInit {
 	location: string = '';
 	category: string = '';
 	items: any[] = [];
+	filteredItems: any[] = [];
+	vegFilter: string = 'all';
+	sortOption: 'default' | 'priceAsc' | 'priceDesc' | 'ratingAsc' | 'ratingDesc' = 'default';
 
 	constructor(
 		private route: ActivatedRoute,
 		private restaurantService: RestaurantService,
 		private locationService: LocationService,
 		private cartService: CartService,
-		private favoritesService: FavoritesService // Inject FavoritesService
+		private favoritesService: FavoritesService
 	) {}
 
 	ngOnInit(): void {
@@ -42,9 +55,31 @@ export class FoodDetailsComponent implements OnInit {
 
 	loadItems(): void {
 		this.restaurantService.getItemsByCategory(this.category).subscribe(items => {
-			// Initialize quantity for each item
 			this.items = items.map(item => ({ ...item, quantity: 1 }));
+			this.filterItems(); // Initialize filter on load
 		});
+	}
+
+	filterItems(): void {
+		this.filteredItems = this.items.filter(item => {
+			if (this.vegFilter === 'veg') return item.veg;
+			if (this.vegFilter === 'nonVeg') return !item.veg;
+			return true; // For 'all' filter
+		});
+		this.sortItems(); // Apply sorting after filtering
+	}
+
+	sortItems(): void {
+		const sortBy = {
+			priceAsc: (a: FoodItem, b: FoodItem) => a.price - b.price,
+			priceDesc: (a: FoodItem, b: FoodItem) => b.price - a.price,
+			ratingAsc: (a: FoodItem, b: FoodItem) => a.rating - b.rating,
+			ratingDesc: (a: FoodItem, b: FoodItem) => b.rating - a.rating
+		};
+
+		if (this.sortOption !== 'default') {
+			this.filteredItems.sort(sortBy[this.sortOption as keyof typeof sortBy]);
+		}
 	}
 
 	// Increase item quantity
@@ -60,18 +95,8 @@ export class FoodDetailsComponent implements OnInit {
 	}
 
 	// Add the item to the cart
-	// food-details.component.ts
-
-	// Add the method to check if the item is from the same restaurant
-	// food-details.component.ts
-	// food-details.component.ts
-	// food-details.component.ts
-	// food-details.component.ts
 	addToCart(item: any): void {
-		// Get current cart items before adding
 		const initialCartItems = [...this.cartService.getCartItems()];
-
-		// Attempt to add the item to the cart
 		this.cartService.addToCart({
 			itemId: item.id,
 			itemName: item.name,
@@ -81,18 +106,13 @@ export class FoodDetailsComponent implements OnInit {
 			quantity: item.quantity
 		});
 
-		// Get cart items after attempting to add
 		const updatedCartItems = this.cartService.getCartItems();
-
-		// Compare cart items before and after to confirm if item was added
 		if (updatedCartItems.length > initialCartItems.length) {
 			alert(`${item.name} was added to your cart successfully!`);
 		}
-		// No need for an alert if the item was not added (conflict due to restaurant)
 	}
 
 	// Add the item to favorites
-	// food-details.component.ts (Add this to the `addToFavorites` method)
 	addToFavorites(item: any): void {
 		const favoriteItem = {
 			itemId: item.id,
