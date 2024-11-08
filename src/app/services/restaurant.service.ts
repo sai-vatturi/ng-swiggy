@@ -87,4 +87,15 @@ export class RestaurantService {
 			)
 		);
 	}
+	searchFoodByLocationAndName(location: string, searchTerm: string): Observable<any[]> {
+		return this.http.get<any>(this.dataUrl).pipe(
+			map(data => {
+				const locationData = data.locations.find((loc: any) => loc.name === location);
+				if (!locationData) return [];
+
+				return locationData.restaurants.flatMap((restaurant: any) => restaurant.items.filter((item: any) => item.name.toLowerCase().includes(searchTerm.toLowerCase())).map((item: any) => ({ ...item, restaurantName: restaurant.name })));
+			}),
+			catchError(() => of([]))
+		);
+	}
 }

@@ -27,7 +27,7 @@
 		<!-- Navigation Links -->
 		<nav class="hidden md:flex gap-8 items-center text-lg text-[rgb(255, 82, 0)]">
 			<!-- Restaurants -->
-			<a (click)="navigateTo('/restaurants')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
+			<a (click)="navigateTo('/order-selection')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<img src="./assets/header/restaurants.svg" alt="" class="h-7 w-7 transition" />
 				<span class="hidden lg:inline">Restaurants</span>
 			</a>
@@ -41,15 +41,19 @@
 			</a>
 
 			<!-- Cart -->
-			<a (click)="navigateTo('/cart')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
+			<a (click)="navigateTo('/cart')" class="relative flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<img src="./assets/header/cart.svg" alt="" class="h-6 w-6 transition" />
 				<span class="hidden lg:inline">Cart</span>
+				<!-- Cart item count badge -->
+				<span *ngIf="cartItemCount > 0" class="absolute -top-2 -right-2 text-xs font-bold text-white bg-red-500 rounded-full h-5 w-5 flex items-center justify-center">{{ cartItemCount }}</span>
 			</a>
 
 			<!-- Favorites -->
-			<a (click)="navigateTo('/favorites')" class="flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
+			<a (click)="navigateTo('/favorites')" class="relative flex items-center gap-2 hover:text-orange-500 transition cursor-pointer">
 				<img src="./assets/header/love.svg" alt="" class="h-6 w-6 transition" />
 				<span class="hidden lg:inline">Favorites</span>
+				<!-- Favorites item count badge -->
+				<span *ngIf="favoritesItemCount > 0" class="absolute -top-2 -right-2 text-xs font-bold text-white bg-red-500 rounded-full h-5 w-5 flex items-center justify-center">{{ favoritesItemCount }}</span>
 			</a>
 
 			<!-- Profile Dropdown -->
@@ -109,37 +113,26 @@
 			</div>
 		</a>
 
-		<a (click)="navigateTo('/cart')" class="block px-4 py-2 hover:bg-orange-500">
+		<a (click)="navigateTo('/cart')" class="relative block px-4 py-2 hover:bg-orange-500">
 			<div class="flex items-center gap-2">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18l-1.5 9H4.5L3 3z" />
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 18a1 1 0 001 1h8a1 1 0 001-1m-9 0a1 1 0 011-1m5 0a1 1 0 011 1" />
 				</svg>
 				<span>Cart</span>
+				<!-- Cart item count badge for mobile -->
+				<span *ngIf="cartItemCount > 0" class="absolute -top-1 -right-3 text-xs font-bold text-white bg-red-500 rounded-full h-4 w-4 flex items-center justify-center">{{ cartItemCount }}</span>
 			</div>
 		</a>
 
-		<a (click)="navigateTo('/favorites')" class="block px-4 py-2 hover:bg-orange-500">
-			<div class="flex items-center gap-2">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart h-5 w-5" viewBox="0 0 16 16">
-					<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-				</svg>
-				<span>Favorites</span>
-			</div>
-		</a>
-
-		<a (click)="navigateTo('/profile')" class="block px-4 py-2 hover:bg-orange-500">
-			<div class="flex items-center gap-2">
-				<img src="./assets/icons/profile-icon.svg" alt="Profile" class="h-5 w-5" />
-				<span>Profile</span>
-			</div>
-		</a>
-		<a (click)="logout()" class="block px-4 py-2 hover:bg-orange-500">
+		<a (click)="navigateTo('/favorites')" class="relative block px-4 py-2 hover:bg-orange-500">
 			<div class="flex items-center gap-2">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-12V5m0 0H7m6 0h6" />
+					<path d="M12 8c-2.21 0-4 1.79-4 4 0 1.09.37 2.09 1 2.82V18h6v-3.18c.63-.73 1-1.73 1-2.82 0-2.21-1.79-4-4-4z" />
 				</svg>
-				<span>Logout</span>
+				<span>Favorites</span>
+				<!-- Favorites item count badge for mobile -->
+				<span *ngIf="favoritesItemCount > 0" class="absolute -top-1 -right-3 text-xs font-bold text-white bg-red-500 rounded-full h-4 w-4 flex items-center justify-center">{{ favoritesItemCount }}</span>
 			</div>
 		</a>
 	</div>

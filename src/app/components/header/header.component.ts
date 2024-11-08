@@ -1,7 +1,10 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorites.service';
 import { LocationService } from '../../services/location.service';
 
 interface Location {
@@ -16,7 +19,7 @@ interface Location {
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
 	isLoggedIn = false;
 	currentUser: any;
 	showDropdown = false;
@@ -29,21 +32,43 @@ export class HeaderComponent {
 		{ id: 'mum', name: 'Mumbai' }
 	];
 
+	cartItemCount = 0;
+	favoritesItemCount = 0;
+	private cartSubscription!: Subscription;
+	private favoritesSubscription!: Subscription;
+
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private locationService: LocationService
+		private locationService: LocationService,
+		private cartService: CartService,
+		private favoritesService: FavoritesService
 	) {
 		this.isLoggedIn = this.authService.isLoggedIn();
 		this.currentUser = this.authService.getCurrentUser();
+	}
 
-		// Subscribe to location updates from LocationService
+	ngOnInit(): void {
 		this.locationService.location$.subscribe(location => {
 			this.currentLocation = location;
 		});
 
-		// Initialize with the current location
 		this.currentLocation = this.locationService.getLocation();
+
+		// Subscribe to cart and favorites item counts
+		this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
+			this.cartItemCount = items.length;
+		});
+
+		this.favoritesSubscription = this.favoritesService.favoriteItems$.subscribe(items => {
+			this.favoritesItemCount = items.length;
+		});
+	}
+
+	ngOnDestroy(): void {
+		// Unsubscribe to prevent memory leaks
+		this.cartSubscription.unsubscribe();
+		this.favoritesSubscription.unsubscribe();
 	}
 
 	navigateTo(path: string) {

@@ -1,12 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LocationService } from '../../services/location.service';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 import { RestaurantsSliderComponent } from '../restaurants-slider/restaurants-slider.component';
 
 @Component({
 	selector: 'app-restaurants',
 	standalone: true,
-	imports: [RestaurantsSliderComponent],
+	imports: [RestaurantsSliderComponent, HeaderComponent, FooterComponent],
 	templateUrl: './restaurants.component.html',
 	styleUrls: ['./restaurants.component.css']
 })

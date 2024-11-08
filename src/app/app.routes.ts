@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { FoodDetailsComponent } from './components/food-details/food-details.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -20,5 +21,6 @@ export const routes: Routes = [
 	{ path: 'restaurants', component: RestaurantsComponent, canActivate: [authGuard] },
 	{ path: 'restaurant-detail/:id', component: RestaurantDetailComponent, canActivate: [authGuard] },
 	{ path: 'food-details', component: FoodDetailsComponent, canActivate: [authGuard] },
+	{ path: 'categories', component: CategoriesComponent, canActivate: [authGuard] },
 	{ path: '**', redirectTo: '' }
 ];
