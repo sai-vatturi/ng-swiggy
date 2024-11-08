@@ -1,54 +1,74 @@
 <app-header></app-header>
 
-<div class="container mx-auto p-4 my-12 min-h-[500px]">
-	<h1 class="text-3xl font-bold mb-6 text-gray-800">Your Cart</h1>
+<div *ngIf="loading" class="absolute inset-0 flex items-center justify-center z-50">
+	<!-- Spinner Animation -->
+	<div class="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-black"></div>
+	<span class="text-black mt-4">Placing Order...</span>
+</div>
+
+<div class="container mx-auto p-4 my-12 min-h-[500px]" [class.opacity-50]="loading">
+	<h1 class="text-3xl font-bold mb-8 text-gray-800">Your Cart</h1>
 
 	<div *ngIf="cartItems.length > 0; else emptyCart">
-		<div *ngFor="let item of cartItems" class="border rounded-lg p-4 mb-4 shadow-md flex items-center">
-			<!-- Item Image -->
-			<div class="w-24 h-24 mr-4 flex-shrink-0">
-				<img [src]="'https://picsum.photos/seed/' + item.itemId + '/100/100'" alt="{{ item.itemName }}" class="w-full h-full object-cover rounded-lg shadow-sm" onerror="this.src='/assets/images/placeholder.png'" />
-			</div>
+		<div *ngFor="let item of cartItems" class="bg-white rounded-xl mb-6 overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-300 group">
+			<div class="p-5 flex items-center gap-6 relative backdrop-blur-sm bg-white/80">
+				<!-- Modern Glass Morphism Effect -->
+				<div class="absolute inset-0"></div>
 
-			<!-- Item Details -->
-			<div class="flex-1">
-				<h2 class="text-lg font-semibold text-gray-900">{{ item.itemName }}</h2>
-				<p class="text-gray-600">
-					Restaurant:
-					<span class="font-medium">{{ item.restaurantName }}</span>
-				</p>
-				<p class="text-gray-600">
-					Location:
-					<span class="font-medium">{{ item.location }}</span>
-				</p>
-				<p class="text-gray-800 mt-2">
-					Price: ₹{{ item.price }} x {{ item.quantity }} =
-					<span class="font-bold">₹{{ item.price * item.quantity }}</span>
-				</p>
-			</div>
+				<!-- Item Image with Modern Treatment -->
+				<div class="relative w-24 h-24 flex-shrink-0">
+					<div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg"></div>
+					<img [src]="'https://picsum.photos/seed/' + item.itemId + '/100/100'" alt="{{ item.itemName }}" class="w-full h-full object-cover rounded-lg relative z-10 group-hover:scale-105 transition-transform duration-300" onerror="this.src='/assets/images/placeholder.png'" />
+				</div>
 
-			<!-- Remove Button -->
-			<div class="text-right">
-				<button (click)="removeItem(item.itemId)" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded-full">Remove</button>
+				<!-- Item Details with Enhanced Typography -->
+				<div class="flex-1">
+					<h2 class="text-lg font-semibold text-gray-900 mb-1 group-hover:text-sworange transition-colors duration-300">{{ item.itemName }}</h2>
+					<div class="space-y-1">
+						<p class="text-gray-600 flex items-center gap-2">
+							<span class="text-sm">Restaurant:</span>
+							<span class="font-medium text-gray-800">{{ item.restaurantName }}</span>
+						</p>
+						<p class="text-gray-600 flex items-center gap-2">
+							<span class="text-sm">Location:</span>
+							<span class="font-medium text-gray-800">{{ item.location }}</span>
+						</p>
+						<p class="text-gray-800 mt-2 flex items-center gap-2">
+							<span class="text-sm">Price:</span>
+							<span class="font-bold text-blue-600">₹{{ item.price }} x {{ item.quantity }} = ₹{{ item.price * item.quantity }}</span>
+						</p>
+					</div>
+				</div>
+
+				<!-- Modern Remove Button -->
+				<div class="relative z-10">
+					<button (click)="removeItem(item.itemId)" class="group-hover:bg-red-500 bg-gray-100 text-gray-600 group-hover:text-white font-medium py-2 px-5 rounded-lg transition-all duration-300 flex items-center gap-2" [disabled]="loading">
+						<span class="hidden group-hover:inline">Remove</span>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<!-- Total Price Section -->
-		<div class="border-t pt-4 mt-4 text-lg font-semibold flex justify-between items-center">
-			<span>Total Price:</span>
-			<span class="text-xl text-green-600">₹{{ totalPrice }}</span>
-		</div>
-		<div class="flex justify-end mt-6">
-			<button (click)="placeOrder()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md">Order Now</button>
-		</div>
-		<div class="container mx-auto p-4 my-12 min-h-[500px]">
-			<app-payment></app-payment>
+		<!-- Enhanced Total Price Section -->
+		<div class="border-t border-gray-100 pt-6 mt-6">
+			<div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
+				<div class="flex justify-between items-center">
+					<span class="text-lg font-medium text-gray-800">Total Price:</span>
+					<span class="text-2xl font-bold text-blue-600">₹{{ totalPrice }}</span>
+				</div>
+				<div class="flex justify-end mt-4">
+					<button (click)="placeOrder()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105" [disabled]="loading">Order Now</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<ng-template #emptyCart>
-		<div class="text-center py-8">
-			<p class="text-gray-500 text-lg">Your cart is empty.</p>
+		<div class="text-center py-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
+			<p class="text-gray-600 text-lg">Your cart is empty.</p>
 		</div>
 	</ng-template>
 </div>

@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
@@ -9,12 +10,12 @@ import { OrderSelectionPageComponent } from './components/order-selection-page/o
 import { RegisterComponent } from './components/register/register.component';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
-import { authGuard } from './guards/auth.guard'; // Import the auth guard
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-	{ path: '', component: HomepageComponent }, // Homepage accessible to everyone
-	{ path: 'register', component: RegisterComponent }, // Removed authGuard from register route
-	{ path: 'login', component: LoginComponent }, // Login route doesn't need guard
+	{ path: '', component: HomepageComponent },
+	{ path: 'register', component: RegisterComponent },
+	{ path: 'login', component: LoginComponent },
 	{ path: 'order-selection', component: OrderSelectionPageComponent, canActivate: [authGuard] },
 	{ path: 'favorites', component: FavoritesComponent, canActivate: [authGuard] },
 	{ path: 'cart', component: CartComponent, canActivate: [authGuard] },
@@ -24,3 +25,13 @@ export const routes: Routes = [
 	{ path: 'categories', component: CategoriesComponent, canActivate: [authGuard] },
 	{ path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+	imports: [
+		RouterModule.forRoot(routes, {
+			scrollPositionRestoration: 'top' // Ensure page scrolls to top on navigation
+		})
+	],
+	exports: [RouterModule]
+})
+export class AppRoutingModule {}

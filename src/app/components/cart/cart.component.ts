@@ -16,6 +16,7 @@ import { PaymentComponent } from '../payment/payment.component';
 export class CartComponent implements OnInit {
 	cartItems: CartItem[] = [];
 	totalPrice = 0;
+	loading = false; // New loading state
 
 	constructor(
 		private cartService: CartService,
@@ -34,6 +35,7 @@ export class CartComponent implements OnInit {
 	removeItem(itemId: string): void {
 		this.cartService.removeFromCart(itemId);
 	}
+
 	placeOrder(): void {
 		const currentUser = this.authService.getCurrentUser();
 		if (!currentUser) {
@@ -41,21 +43,25 @@ export class CartComponent implements OnInit {
 			return;
 		}
 
+		this.loading = true; // Start loading when placing order
+
 		const orderDetails = {
 			userId: currentUser.id,
 			username: currentUser.username,
 			items: this.cartItems,
 			totalPrice: this.totalPrice,
 			date: new Date().toISOString(),
-			restaurantName: this.cartItems[0]?.restaurantName || 'N/A' // Assuming all items are from the same restaurant
+			restaurantName: this.cartItems[0]?.restaurantName || 'N/A'
 		};
 
 		this.cartService.placeOrder(orderDetails).subscribe(
 			() => {
+				this.loading = false; // Stop loading on success
 				alert('Order placed successfully!');
 				this.cartService.clearCart();
 			},
 			error => {
+				this.loading = false; // Stop loading on error
 				console.error('Order failed', error);
 				alert('Failed to place order. Please try again.');
 			}

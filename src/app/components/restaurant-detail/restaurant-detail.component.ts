@@ -1,9 +1,10 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
-import { FavoritesService } from '../../services/favorites.service'; // Import FavoritesService
+import { FavoritesService } from '../../services/favorites.service';
+import { LocationService } from '../../services/location.service';
 import { RestaurantService } from '../../services/restaurant.service';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -16,7 +17,6 @@ interface FoodItem {
 	totalRatings: number;
 	veg: boolean;
 	quantity: number;
-	// Add other properties if necessary
 }
 
 @Component({
@@ -24,42 +24,52 @@ interface FoodItem {
 	templateUrl: './restaurant-detail.component.html',
 	styleUrls: ['./restaurant-detail.component.css'],
 	standalone: true,
-	imports: [CommonModule, NgFor, FormsModule, HeaderComponent, FooterComponent, NgIf, NgFor]
+	imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent]
 })
 export class RestaurantDetailComponent implements OnInit {
 	restaurant: any;
+	location: string = '';
 	filteredItems: FoodItem[] = [];
 	vegFilter: string = 'all';
-	sortOption: string = 'default';
+	sortOption: 'default' | 'priceAsc' | 'priceDesc' | 'ratingAsc' | 'ratingDesc' = 'default';
 
 	constructor(
 		private route: ActivatedRoute,
 		private restaurantService: RestaurantService,
 		private cartService: CartService,
-		private favoritesService: FavoritesService
+		private favoritesService: FavoritesService,
+		private locationService: LocationService
 	) {}
 
 	ngOnInit(): void {
+		// Fetch restaurant ID from route parameters
 		const restaurantId = this.route.snapshot.paramMap.get('id');
 		if (restaurantId) {
-			this.restaurantService.getRestaurantById(restaurantId).subscribe(
-				restaurant => {
-					if (restaurant) {
-						this.restaurant = restaurant;
-						// Initialize quantity and filteredItems
-						this.restaurant.items.forEach((item: FoodItem) => (item.quantity = 1));
-						this.filteredItems = [...this.restaurant.items];
-					} else {
-						console.error('Restaurant not found');
-					}
-				},
-				error => {
-					console.error('Error loading restaurant details:', error);
-				}
-			);
-		} else {
-			console.error('No restaurant ID provided');
+			this.loadRestaurantDetails(restaurantId);
 		}
+
+		// Subscribe to location updates
+		this.locationService.location$.subscribe(location => {
+			this.location = location;
+		});
+	}
+
+	// Load restaurant details and initialize menu items
+	private loadRestaurantDetails(restaurantId: string): void {
+		this.restaurantService.getRestaurantById(restaurantId).subscribe(
+			restaurant => {
+				if (restaurant) {
+					this.restaurant = restaurant;
+					this.restaurant.items.forEach((item: FoodItem) => (item.quantity = 1));
+					this.filteredItems = [...this.restaurant.items];
+				} else {
+					console.error('Restaurant not found');
+				}
+			},
+			error => {
+				console.error('Error loading restaurant details:', error);
+			}
+		);
 	}
 
 	// Filter items based on vegetarian status
@@ -98,12 +108,12 @@ export class RestaurantDetailComponent implements OnInit {
 		}
 	}
 
-	// Add item to cart
+	// Add item to cart with location validation
 	addItemToCart(item: FoodItem): void {
-		const cartItems = this.cartService.getCartItems();
+		const initialCartItems = [...this.cartService.getCartItems()];
 
-		// Check for items from a different restaurant
-		if (cartItems.length > 0 && cartItems[0].restaurantName !== this.restaurant.name) {
+		// Check if cart already has items from a different restaurant
+		if (initialCartItems.length > 0 && initialCartItems[0].restaurantName !== this.restaurant.name) {
 			alert(`You can only order from one restaurant at a time. Please clear your cart before adding items from ${this.restaurant.name}.`);
 			return;
 		}
@@ -112,7 +122,7 @@ export class RestaurantDetailComponent implements OnInit {
 			itemId: item.id,
 			itemName: item.name,
 			restaurantName: this.restaurant.name,
-			location: this.restaurant.location,
+			location: this.location,
 			price: item.price,
 			quantity: item.quantity
 		};
@@ -127,7 +137,7 @@ export class RestaurantDetailComponent implements OnInit {
 			itemId: item.id,
 			itemName: item.name,
 			restaurantName: this.restaurant.name,
-			location: this.restaurant.location,
+			location: this.location,
 			price: item.price,
 			quantity: 1
 		};
