@@ -37,6 +37,10 @@ Run `ng serve` to start the live server.
 
 - **Favorites Page**:
   - Lists user’s favorite food items, managed with Angular services or `localStorage`.
+ 
+- **Sorting Options**:
+  - Users can sort restaurants and menu items by Rating, Price, Delivery Time, Veg / Non Veg, Etc...
+  - Sorting controls are available in the Order Selection Page and Restaurant Listings.
 
 - **Cart Simulation**:
   - "Add to Cart" feature with real-time price calculation.
@@ -48,6 +52,8 @@ Run `ng serve` to start the live server.
 
 - **Location-Based Filtering**:
   - Enables users to filter restaurants and menu items based on selected location.
+ 
+
 
 
 ## Technical Implementation
