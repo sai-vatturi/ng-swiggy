@@ -4,15 +4,27 @@ This project is a front-end clone of the Swiggy website, developed using Angular
 
 Vercel Deployment Link: [https://ng-swiggy.vercel.app](https://ng-swiggy.vercel.app/)
 
+
+I have included all the features and followed implementation details that was mentioned in the requirement document here: [Mini Project_ Swiggy Clone Using Angular.pdf](https://github.com/user-attachments/files/17674299/Mini.Project_.Swiggy.Clone.Using.Angular.1.pdf)
+
+Run `npm install` to install the required packages. 
+Run `ng serve` to start the live server.
+
 ## Project Highlights
 
 - **Custom Dataset**:
   - A unique dataset simulating real-world restaurant information, menu items, user reviews, and more.
-  - Dataset used: [data.json](https://github.com/sai-vatturi/ng-swiggy/blob/main/src/assets/data/data.json)
   - Includes location-based filtering, allowing users to view restaurants and menu items specific to their selected location.
+  - Custom Dataset link: [data.json](https://github.com/sai-vatturi/ng-swiggy/blob/main/src/assets/data/data.json)
 
 - **Dynamic Image Integration**:
   - Utilizes images from [Picsum](https://picsum.photos/) to simulate a variety of food and restaurant images, creating a realistic visual experience.
+
+- **Authentication**:
+  - Integrated with MockAPI for user login and registration.
+  - Saved login credentials and order details stored in MockAPI at:
+    - **Users**: [https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/users](https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/users)
+    - **Orders**: [https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/orders](https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/orders)
 
 - **Order Selection Page**:
   - Added an **Order Selection** page that enables users to:
@@ -37,11 +49,6 @@ Vercel Deployment Link: [https://ng-swiggy.vercel.app](https://ng-swiggy.vercel.
 - **Location-Based Filtering**:
   - Enables users to filter restaurants and menu items based on selected location.
 
-- **Authentication**:
-  - Integrated with MockAPI for user login and registration.
-  - Saved login credentials and order details stored in MockAPI at:
-    - **Users**: [https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/users](https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/users)
-    - **Orders**: [https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/orders](https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/orders)
 
 ## Technical Implementation
 
