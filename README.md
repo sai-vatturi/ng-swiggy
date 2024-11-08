@@ -1,6 +1,8 @@
 # Swiggy Front End Implemenation using Angular and Tailwind
 
-This project is a front-end clone of the Swiggy website, developed using Angular. It simulates essential UI elements and user interactions on a food discovery platform.
+This project is a front-end clone of the Swiggy website, developed using Angular. It simulates essential UI elements and user interactions on a food discovery platform. 
+
+Vercel Deployment Link: [https://ng-swiggy.vercel.app](https://ng-swiggy.vercel.app/)
 
 ## Project Highlights
 
