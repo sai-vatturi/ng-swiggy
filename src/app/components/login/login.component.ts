@@ -36,4 +36,10 @@ export class LoginComponent {
 			}
 		);
 	}
+	navigateToRegister() {
+		this.router.navigate(['/register']);
+	}
+	navigateTo(route: string) {
+		this.router.navigate([route]);
+	}
 }

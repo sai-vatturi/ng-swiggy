@@ -13,7 +13,7 @@ import { authGuard } from './guards/auth.guard'; // Import the auth guard
 
 export const routes: Routes = [
 	{ path: '', component: HomepageComponent }, // Homepage accessible to everyone
-	{ path: 'register', component: RegisterComponent, canActivate: [authGuard] },
+	{ path: 'register', component: RegisterComponent }, // Removed authGuard from register route
 	{ path: 'login', component: LoginComponent }, // Login route doesn't need guard
 	{ path: 'order-selection', component: OrderSelectionPageComponent, canActivate: [authGuard] },
 	{ path: 'favorites', component: FavoritesComponent, canActivate: [authGuard] },
