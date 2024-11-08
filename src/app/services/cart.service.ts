@@ -1,6 +1,6 @@
-// cart.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface CartItem {
 	itemId: string;
@@ -9,6 +9,15 @@ export interface CartItem {
 	location: string;
 	price: number;
 	quantity: number;
+}
+
+export interface OrderDetails {
+	userId: string;
+	username: string;
+	items: CartItem[];
+	totalPrice: number;
+	date: string;
+	restaurantName: string;
 }
 
 @Injectable({
@@ -21,8 +30,9 @@ export class CartService {
 	private totalPriceSubject = new BehaviorSubject<number>(0);
 	totalPrice$ = this.totalPriceSubject.asObservable();
 	private currentRestaurantName: string | null = null; // Track current restaurant
+	private ordersUrl = 'https://6728d0196d5fa4901b6b0a9c.mockapi.io/api/orders'; // Orders endpoint
 
-	constructor() {}
+	constructor(private http: HttpClient) {} // Inject HttpClient here
 
 	addToCart(item: CartItem): void {
 		// Check if the cart contains items from a different restaurant
@@ -69,5 +79,9 @@ export class CartService {
 	private updateCart(): void {
 		this.cartItemsSubject.next(this.cartItems);
 		this.totalPriceSubject.next(this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0));
+	}
+
+	placeOrder(orderDetails: OrderDetails): Observable<any> {
+		return this.http.post(this.ordersUrl, orderDetails);
 	}
 }
