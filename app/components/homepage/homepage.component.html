@@ -1,0 +1,113 @@
+<section class="bg-sworange relative min-h-screen lg:min-h-[70rem] overflow-x-hidden font-gilroy">
+	<!-- Background Images -->
+	<div class="absolute inset-0 w-full h-full">
+		<img src="assets/home/left.avif" alt="" class="absolute left-0 top-64 w-32 sm:w-48 lg:w-64 xl:w-80 opacity-40 sm:opacity-60 lg:opacity-100" />
+		<img src="assets/home/right.avif" alt="" class="absolute right-0 top-64 w-32 sm:w-48 lg:w-64 xl:w-80 opacity-40 sm:opacity-60 lg:opacity-100" />
+	</div>
+
+	<!-- Content Container -->
+	<div class="relative z-10">
+		<!-- Header Section -->
+		<header class="px-4 sm:px-8 lg:px-12 pt-6 lg:pt-12">
+			<div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+				<!-- Logo -->
+				<div class="cursor-pointer" (click)="navigateTo('/')">
+					<img src="assets/home/logo.png" alt="Hero Image" class="h-12 lg:h-16" />
+				</div>
+
+				<!-- Navigation -->
+				<nav>
+					<ul class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 lg:gap-11 text-white text-base lg:text-xl font-gilroy">
+						<li class="hidden sm:block">
+							<a href="#" class="hover:opacity-80">Swiggy Corporate</a>
+						</li>
+						<li class="hidden sm:block">
+							<a href="#" class="hover:opacity-80">Partner with us</a>
+						</li>
+						<li class="w-full sm:w-auto">
+							<a href="#" class="flex items-center justify-center gap-2 px-4 py-2 border-2 border-white text-white rounded-lg hover:bg-white hover:text-sworange transition-colors">
+								Get the App
+								<img src="assets/home/arrow-up-right.svg" alt="" class="h-4 w-4" />
+							</a>
+						</li>
+
+						<!-- Profile Icon or Login Button -->
+						<li class="w-full sm:w-auto flex justify-center sm:justify-start">
+							<ng-container *ngIf="isLoggedIn; else loginButton">
+								<div class="relative">
+									<button (click)="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg text-black transition-colors">
+										<img src="./assets/icons/profile-icon.svg" alt="Profile" class="h-6 w-6" />
+										<span>{{ currentUser?.username }}</span>
+									</button>
+
+									<!-- Dropdown Menu -->
+									<div *ngIf="showDropdown" class="absolute right-0 mt-2 bg-white rounded-lg shadow-lg w-40 py-2">
+										<p class="px-4 py-2 text-gray-700">{{ currentUser?.username }}</p>
+										<button (click)="logout()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
+									</div>
+								</div>
+							</ng-container>
+
+							<!-- Login Button (if not logged in) -->
+							<ng-template #loginButton>
+								<button (click)="navigateTo('/login')" class="w-full sm:w-auto px-4 py-2 bg-white rounded-lg hover:bg-gray-200 text-black transition-colors">Login</button>
+							</ng-template>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero Content -->
+		<div class="px-4 sm:px-8 lg:px-12 mt-16 sm:mt-24 lg:mt-44 font-gilroybold font-bold">
+			<div class="max-w-5xl mx-auto text-center text-white">
+				<!-- Hero Text -->
+				<h1 class="text-2xl sm:text-3xl lg:text-5xl font-gilroy">Order Food & Groceries. Discover the best restaurants. Swiggy it!</h1>
+
+				<!-- Search Input -->
+				<div class="relative max-w-md mx-auto mt-8 sm:mt-10 lg:mt-12 mb-16 sm:mb-20 lg:mb-28" (click)="navigateBasedOnLogin('/order-selection')">
+					<input type="text" placeholder="Enter your meal and more" class="w-full h-12 px-5 pr-12 text-xl rounded-lg text-black shadow-2xl" />
+					<img src="assets/home/search.svg" alt="Search Icon" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-6 w-6" />
+				</div>
+			</div>
+		</div>
+
+		<!-- Offers Section -->
+		<div class="flex justify-center px-4 sm:px-8 lg:px-12 mb-12">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 max-w-7xl mx-auto">
+				<!-- Restaurants Card -->
+				<app-offer-card [offer]="offers[0]" (click)="navigateBasedOnLogin('/order-selection')"></app-offer-card>
+
+				<!-- Food Items Card -->
+				<app-offer-card [offer]="offers[1]" (click)="navigateBasedOnLogin('/order-selection')"></app-offer-card>
+
+				<!-- Cart Card -->
+				<app-offer-card [offer]="offers[2]" (click)="navigateBasedOnLogin('/cart')"></app-offer-card>
+
+				<!-- Favourites Card -->
+				<app-offer-card [offer]="offers[3]" (click)="navigateBasedOnLogin('/favorites')"></app-offer-card>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="pt-16 pb-10">
+	<app-food-item-slider></app-food-item-slider>
+</div>
+
+<div class="bg-[#151A1E] my-10 py-10">
+	<img src="./assets/home/order.png" alt="" class="md:w-[80%] lg:w-[70%] mx-auto" />
+</div>
+
+<div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-8 mt-11">
+	<p class="w-[90%] sm:w-[80%] mx-auto font-gilroybold text-xl sm:text-2xl py-8 sm:py-12">Cities with food delivery</p>
+	<nav class="w-full sm:w-[90%] mx-auto">
+		<ul class="flex flex-wrap justify-center gap-6 sm:gap-12 md:gap-16 lg:gap-24 w-full mx-auto pb-10">
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Hyderabad')">Order food online in Hyderabad</li>
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Bangalore')">Order food online in Bangalore</li>
+			<li class="py-3 px-6 sm:px-8 font-md font-normal border-2 rounded-xl hover:text-sworange cursor-pointer" href="" (click)="selectLocation('Mumbai')">Order food online in Mumbai</li>
+		</ul>
+	</nav>
+</div>
+
+<app-footer></app-footer>

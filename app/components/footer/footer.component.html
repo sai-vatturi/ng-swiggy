@@ -1,0 +1,85 @@
+<footer class="bg-[#F0F0F5] py-8 font-gilroy text-lg">
+	<div class="container mx-auto px-4">
+		<!-- Top Section -->
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
+			<!-- Logo Section -->
+			<div class="col-span-1 text-center">
+				<div class="flex flex-col gap-2 items-center">
+					<img src="assets/footer/logo.png" alt="Swiggy" class="w-32 md:w-64" />
+					<p class="text-swgray text-sm">© 2024 Swiggy Limited</p>
+				</div>
+			</div>
+
+			<!-- Company Section -->
+			<div class="col-span-1">
+				<h3 class="text-swblack font-gilroybold text-xl md:text-2xl mb-4">Company</h3>
+				<ul class="space-y-2 md:space-y-3">
+					@for (link of companySectionLinks; track link.text) {
+					<li>
+						<a [href]="link.url" class="text-footerGray hover:text-sworange transition-colors text-base md:text-lg">{{link.text}}</a>
+					</li>
+					}
+				</ul>
+			</div>
+
+			<!-- Contact Section -->
+			<div class="col-span-1">
+				<h3 class="text-swblack font-gilroybold text-xl md:text-2xl mb-4">Contact us</h3>
+				<ul class="space-y-2 md:space-y-3">
+					@for (link of contactSectionLinks; track link.text) {
+					<li>
+						<a [href]="link.url" class="text-footerGray hover:text-sworange transition-colors text-base md:text-lg">{{link.text}}</a>
+					</li>
+					}
+				</ul>
+			</div>
+
+			<!-- Legal Section -->
+			<div class="col-span-1">
+				<h3 class="text-swblack font-gilroybold text-xl md:text-2xl mb-4">Legal</h3>
+				<ul class="space-y-2 md:space-y-3">
+					@for (link of legalSectionLinks; track link.text) {
+					<li>
+						<a [href]="link.url" class="text-footerGray hover:text-sworange transition-colors text-base md:text-lg">{{link.text}}</a>
+					</li>
+					}
+				</ul>
+			</div>
+
+			<!-- Cities and Social Links -->
+			<div class="col-span-1">
+				<div class="mb-6">
+					<h3 class="text-swblack font-gilroybold text-xl md:text-2xl mb-4">Available in:</h3>
+					<ul class="space-y-2 md:space-y-3">
+						@for (city of cities; track city) {
+						<li>
+							<a href="#" class="text-footerGray hover:text-sworange transition-colors text-base md:text-lg">{{city}}</a>
+						</li>
+						}
+					</ul>
+					<button class="mt-3 text-swgray hover:text-sworange flex items-center gap-1">
+						685 cities
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- App Download Section -->
+		<div class="mt-8 md:mt-12 border-t pt-8">
+			<div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+				<p class="text-swblack font-gilroy text-base md:text-lg">For a better experience, download the Swiggy app now</p>
+				<div class="flex gap-4 justify-center">
+					<a href="https://apps.apple.com/in/app/swiggy-food-grocery-delivery/id989540920" class="transition-transform hover:scale-105">
+						<img src="assets/footer/app_store.avif" alt="Download on App Store" class="h-12 md:h-16" />
+					</a>
+					<a href="https://play.google.com/store/apps/details?id=in.swiggy.android" class="transition-transform hover:scale-105">
+						<img src="assets/footer/play_store.avif" alt="Get it on Google Play" class="h-12 md:h-16" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
