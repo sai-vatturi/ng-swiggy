@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface FoodItem {
@@ -15,6 +15,8 @@ interface FoodItem {
 	imports: [CommonModule]
 })
 export class FoodItemSliderComponent implements OnInit {
+	@ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
 	foodItems: FoodItem[] = [
 		{ name: 'Biryani', image: 'assets/home/items/biryani.avif' },
 		{ name: 'Burger', image: 'assets/home/items/burger.avif' },
@@ -38,9 +40,8 @@ export class FoodItemSliderComponent implements OnInit {
 		{ name: 'South Indian', image: 'assets/home/items/southindian.avif' }
 	];
 
-	sliderPosition = 0; // Tracks the current position of the slider
-	itemWidth = 160; // Width of each item in px including margins
 	itemsPerView = 4; // Default number of items to show based on screen size
+
 	constructor(private router: Router) {}
 
 	showFoodDetails(category: string): void {
@@ -66,39 +67,19 @@ export class FoodItemSliderComponent implements OnInit {
 		} else {
 			this.itemsPerView = 4;
 		}
-
-		// Ensure sliderPosition is valid after itemsPerView changes
-		if (this.sliderPosition > this.foodItems.length - this.itemsPerView) {
-			this.sliderPosition = Math.max(this.foodItems.length - this.itemsPerView, 0);
-		}
 	}
 
-	// Calculate the transform style for sliding effect
-	get sliderTransform(): string {
-		return `translateX(-${this.sliderPosition * this.itemWidth}px)`;
+	// Scroll the container to the previous set of items
+	scrollPrevious() {
+		const container = this.scrollContainer.nativeElement;
+		const scrollAmount = container.clientWidth;
+		container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
 	}
 
-	// Move the slider to the previous position
-	previousSlide() {
-		if (this.canGoPrevious()) {
-			this.sliderPosition--;
-		}
-	}
-
-	// Move the slider to the next position
-	nextSlide() {
-		if (this.canGoNext()) {
-			this.sliderPosition++;
-		}
-	}
-
-	// Check if the slider can move to the previous position
-	canGoPrevious(): boolean {
-		return this.sliderPosition > 0;
-	}
-
-	// Check if the slider can move to the next position
-	canGoNext(): boolean {
-		return this.sliderPosition < this.foodItems.length - this.itemsPerView;
+	// Scroll the container to the next set of items
+	scrollNext() {
+		const container = this.scrollContainer.nativeElement;
+		const scrollAmount = container.clientWidth;
+		container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 	}
 }
