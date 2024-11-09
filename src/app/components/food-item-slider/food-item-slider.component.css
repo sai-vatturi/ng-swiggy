@@ -1,0 +1,47 @@
+/* Hide scrollbar for Webkit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.snap-center {
+	scroll-snap-align: center;
+}
+
+.snap-x {
+	scroll-snap-type: x mandatory;
+}
+
+.space-x-4 > * + * {
+	margin-left: 1rem;
+}
+
+/* Enable smooth scrolling */
+.scroll-container {
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
+}
+
+/* Responsive item widths based on itemsPerView */
+@media (min-width: 1024px) {
+	.flex-none {
+		width: calc((100% - (1rem * 7)) / 8); /* 8 items per view */
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.flex-none {
+		width: calc((100% - (1rem * 5)) / 6); /* 6 items per view */
+	}
+}
+
+@media (max-width: 767px) {
+	.flex-none {
+		width: calc((100% - (1rem * 3)) / 4); /* 4 items per view */
+	}
+}
